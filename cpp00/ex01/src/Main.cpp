@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:33:00 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/10 15:15:27 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/10 17:02:24 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,6 @@
 #include <string>
 #include <Colors.hpp>
 #include <Phonebook.hpp>
-
-void	printCurrent(Phonebook Phonebook)
-{
-	for (int i = 0; i < MAXCONTACTS; i++)
-	{
-		std::cout << "Index: " << i << std::endl;
-		std::cout << Phonebook.Contact[i].firstName << std::endl;
-		std::cout << Phonebook.Contact[i].lastName << std::endl;
-		std::cout << Phonebook.Contact[i].nickname << std::endl;
-		std::cout << Phonebook.Contact[i].secret << std::endl << std::endl;
-	}
-}
 
 void	initPrompt(void)
 {
@@ -47,23 +35,13 @@ int	main(void)
 		std::getline(std::cin, command);
 		if (command.compare("ADD") == 0)
 			Phonebook.addContact();
-		// else if (command.compare("SEARCH") == 0)
-		// 	Phonebook.searchContact();
+		else if (command.compare("SEARCH") == 0)
+			Phonebook.searchContact();
 		else if (command.compare("EXIT") == 0)
 			break ;
-		else if (command.compare("PRINT") == 0)
-			printCurrent(Phonebook);
 		else
 			std::cout << RED "Command not found" RESET << std::endl;
 	}
-	std::cout << GREEN BOLD "Closing 80s Phonebook Simulator 2023" RESET << std::endl;
+	std::cout << MAGENTA BOLD "Closing 80s Phonebook Simulator 2023" RESET << std::endl;
 	return (EXIT_SUCCESS);
 }
-
-/**
- * Phonebook:
- * add a contact
- * search for a contact
- * exit and delete all contacts
- * 
- */

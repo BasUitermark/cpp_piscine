@@ -1,6 +1,7 @@
 # tool macros
 CC			:= c++
-CFLAGS 		:= -Wall -Werror -Wextra -std=c++98 -c
+CFLAGS 		:= -Wall -Werror -Wextra -std=c++98
+COBJFLAGS 	:= $(CFLAGS) -c
 
 # path macros
 HDR_PATH	:= -I include
@@ -9,8 +10,8 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= Phonebook
-TARGET		:= $(BIN_PATH)/$(NAME)
+TARGET_NAME	:= 80sPhonebookSimulator2023
+TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
 
 # color macros
@@ -21,19 +22,19 @@ MAGENTA		= \033[1;35m
 RESET		= \033[0m
 
 # source files & object files
-OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 SRC 		:= $(addprefix src/, $(addsuffix .cpp, \
 					Main \
 					Phonebook \
 					Contact))
+OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all
 
 $(TARGET): $(OBJ)
-	@$(CC) $(OBJ) $(HDR_PATH) -o $(TARGET_NAME)
+	@$(CC) -o $@ $(OBJ) $(HDR_PATH) $(CFLAGS)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp
-	@$(CC) $(CFLAGS) $< -o $@ $(HDR_PATH)
+	@$(CC) $(COBJFLAGS) -o $@ $< $(HDR_PATH)
 
 all: $(TARGET)
 

@@ -9,6 +9,7 @@ class Phonebook
 {
 	public:
 		int		totalContacts;
+		Contact newContact;
 		Contact	Contact[MAXCONTACTS];
 
 		void	addContact();

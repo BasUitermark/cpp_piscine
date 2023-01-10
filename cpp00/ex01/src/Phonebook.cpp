@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:37:34 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/10 15:14:15 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/10 17:15:23 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,102 @@
 #include <string>
 #include <Colors.hpp>
 #include <Phonebook.hpp>
+#include <Contact.hpp>
+
+std::string	getInput(void)
+{
+	std::string	input;
+
+	if (std::cin)
+	{
+		std::getline(std::cin, input);
+		while (input.empty())
+		{
+			std::cout << RED "Invalid input. Please try again" RESET << std::endl;
+			std::getline(std::cin, input);
+		}
+		return (input);
+	}
+	exit(0);
+}
 
 void	Phonebook::addContact(void)
 {
 	std::string	input;
-	int			index;
 
 	if (totalContacts == MAXCONTACTS)
 	{
 		std::cout << RED "Warning. You are trying to add more than 8 contacts. Adding more will result in overwriting previous entries" RESET << std::endl << std::endl;
 		totalContacts = 0;
 	}
-	index = totalContacts % MAXCONTACTS;
 	std::cout << "The simulator will now prompt you to enter some basic information" << std::endl;
 
-	std::cout << "Enter first name:" << std::endl;
-	std::getline(std::cin, input);
-	Contact[index].insertFirstName(input);
+	std::cout << BOLD "Enter first name:" RESET << std::endl;
+	input = getInput();
+	newContact.insertFirstName(input);
 
-	std::cout << "Enter last name:" << std::endl;
-	std::getline(std::cin, input);
-	Contact[index].insertLastName(input);
+	std::cout << BOLD "Enter last name:" RESET << std::endl;
+	input = getInput();
+	newContact.insertLastName(input);
 
-	std::cout << "Enter nickname:" << std::endl;
-	std::getline(std::cin, input);
-	Contact[index].insertNickname(input);
+	std::cout << BOLD "Enter nickname:" RESET << std::endl;
+	input = getInput();
+	newContact.insertNickname(input);
 
-	std::cout << "Enter deepest secret:" << std::endl;
-	std::getline(std::cin, input);
+	std::cout << BOLD "Enter phonenumber:" RESET << std::endl;
+	input = getInput();
+	newContact.insertPhonenumber(input);
+
+	std::cout << BOLD "Enter deepest secret:" RESET << std::endl;
+	input = getInput();
 	std::cout << std::endl;
-	Contact[index].insertSecret(input);
+	newContact.insertSecret(input);
 
+	Contact[totalContacts % MAXCONTACTS] = newContact;
 	std::cout << GREEN "New contact has been added" RESET<< std::endl << std::endl;
 	totalContacts += 1;
+}
+
+std::string	fitToColumn(std::string str)
+{
+	std::string edit;
+
+	if (str.size() > 10)
+	{
+		edit = str.substr(0, 8);
+		edit.append(".");
+		return (edit);
+	}
+	else
+	{
+		edit.insert(0, str);
+		edit.insert(0, 10 - str.length(), ' ');
+		return (edit);
+	}
+}
+
+void	Phonebook::searchContact(void)
+{
+	std::string	fittedString;
+
+	std::cout << "|*******************************************|" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|__________|__________|__________|__________|" << std::endl;
+
+	for (int i = 0; i < MAXCONTACTS; i++)
+	{
+		std::cout << "|         " << i + 1;
+
+		fittedString = fitToColumn(Contact[i].getFirstName());
+		std::cout << "|" << fittedString;
+
+		fittedString = fitToColumn(Contact[i].getLastName());
+		std::cout << "|" << fittedString;
+
+		fittedString = fitToColumn(Contact[i].getNickname());
+		std::cout << "|" << fittedString << "|" << std::endl;
+		if (i != 7)
+			std::cout << "|__________|__________|__________|__________|" << std::endl;
+	}
+	std::cout << "|*******************************************|" << std::endl;
 }
