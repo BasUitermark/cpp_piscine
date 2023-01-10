@@ -9,7 +9,7 @@ class Phonebook
 {
 	public:
 		class Contact	Contact[MAXCONTACTS];
-		int		totalContacts;
+		int				totalContacts;
 
 		void	addContact();
 		void	searchContact();

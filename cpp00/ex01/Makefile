@@ -38,7 +38,7 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp
 
 all: $(TARGET)
 
-run: all
+run: default
 	./$(TARGET)
 
 mkdir:
