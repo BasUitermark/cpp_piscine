@@ -1,57 +1,39 @@
-#===============================================================================: Filename
 NAME		= megaphone
+CC			= c++
 
-#===============================================================================: Source to object conversion location
-OBJS		= $(subst src, objs, $(SRCS:.c=.o))
+SRC 		= 	$(addsuffix .cpp, \
+					Megaphone)
 
-#===============================================================================: Color codes
+# INCLUDE = -I ./include
+OBJ 		= $(SRC:%.cpp=%.o)
+
+CFLAGS 		= -Wall -Werror -Wextra -std=c++98
+
 GREEN		= \033[1;32m
 RED			= \033[1;31m
 BLUE		= \033[1;34m
 MAGENTA		= \033[1;35m
 RESET		= \033[0m
 
-#===============================================================================: Compile variables
-CC			= c++
-CFLAGS		= -Wall -Werror -Wextra
-MAKEFLAGS	= -std=c++98
-RM			= rm -rf
-MKDIR		= mkdir -p
-HEADERS		= -I include
-
-#===============================================================================: Sourcefiles
-SRCS		= 	$(addsuffix .cpp, \
-					Megaphone)
-
-#===============================================================================: Make commands
-all: $(NAME)
-
-#===============================================================================: Main compile
-$(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(HEADERS) -o $(NAME)
-
-#===============================================================================: C file compile
-objs/%.o: src/%.cpp
-	@$(MKDIR) objs
-	@$(CC) -o $@ -c $< $(HEADERS)
-ifeq ($(DB),1)
-	@printf "$(GREEN)\r🔨Compiling: $(MAGENTA)$(notdir $<)$(GREEN)\r\e[35C[OK]\n$(RESET)"
+ifneq ("$(wildcard $(NAME))","")
+    FILE_EXISTS = 1
+else
+    FILE_EXISTS = 0
 endif
 
-#===============================================================================: Remove all object files
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	@$(CC) -c $(CFLAGS) $< -o $@
+
 clean:
-	@$(RM) objs/
-	@printf "$(RED)🧹Removed objects for \"$(NAME)\"!$(RESET)\n"
+	@rm -f $(OBJ)
 
-#===============================================================================: Remove all object files and executable
-fclean:
-	@$(RM) objs/
-	@$(RM) $(NAME)
-	@printf "$(RED)🧹Removed objects for \"$(NAME)\"!$(RESET)\n"
-	@printf "$(RED)🧹Removed \"$(NAME)\"!$(RESET)\n"
+fclean: clean
+	@rm -f $(NAME)
 
-#===============================================================================: Remove all object files, executable and remake executable
-re: fclean all
-
-#===============================================================================: To not confuse make
-.PHONY: all, clean, fclean, re
+re:	fclean all
+.PHONY: clean fclean re
