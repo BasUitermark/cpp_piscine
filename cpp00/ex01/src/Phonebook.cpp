@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:37:34 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/10 17:15:23 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/10 17:32:29 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	Phonebook::addContact(void)
 {
 	std::string	input;
 
-	if (totalContacts == MAXCONTACTS)
+	if (totalContacts + 1 == MAXCONTACTS)
 	{
 		std::cout << RED "Warning. You are trying to add more than 8 contacts. Adding more will result in overwriting previous entries" RESET << std::endl << std::endl;
 		totalContacts = 0;
@@ -66,7 +66,7 @@ void	Phonebook::addContact(void)
 	newContact.insertSecret(input);
 
 	Contact[totalContacts % MAXCONTACTS] = newContact;
-	std::cout << GREEN "New contact has been added" RESET<< std::endl << std::endl;
+	std::cout << GREEN "New contact has been added" RESET << std::endl << std::endl;
 	totalContacts += 1;
 }
 
@@ -76,7 +76,7 @@ std::string	fitToColumn(std::string str)
 
 	if (str.size() > 10)
 	{
-		edit = str.substr(0, 8);
+		edit = str.substr(0, 9);
 		edit.append(".");
 		return (edit);
 	}

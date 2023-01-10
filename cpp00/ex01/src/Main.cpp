@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:33:00 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/10 17:02:24 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/10 17:31:56 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	initPrompt(void)
 {
-	std::cout << MAGENTA BOLD "Welcome to 80s Phonebook Simulator 2023" RESET << std::endl << std::endl;
+	std::cout << MAGENTA BOLD "Welcome to Phonebook Simulator 2023" RESET << std::endl << std::endl;
 
 	std::cout << BOLD "Type \"ADD\" to add contacts to your 80s Phonebook!" RESET << std::endl;
 	std::cout << BOLD "Type \"SEARCH\" to search your 80s Phoneebook for a contact!" RESET << std::endl;
@@ -30,6 +30,7 @@ int	main(void)
 	Phonebook	Phonebook;
 	
 	initPrompt();
+	Phonebook.totalContacts = 0;
 	while (true)
 	{
 		std::getline(std::cin, command);
@@ -42,6 +43,6 @@ int	main(void)
 		else
 			std::cout << RED "Command not found" RESET << std::endl;
 	}
-	std::cout << MAGENTA BOLD "Closing 80s Phonebook Simulator 2023" RESET << std::endl;
+	std::cout << MAGENTA BOLD "Closing Phonebook Simulator 2023" RESET << std::endl;
 	return (EXIT_SUCCESS);
 }

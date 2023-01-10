@@ -10,7 +10,7 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= 80sPhonebookSimulator2023
+TARGET_NAME	:= PhonebookSimulator2023
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
 

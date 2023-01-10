@@ -8,12 +8,14 @@
 class Phonebook
 {
 	public:
+		class Contact	Contact[MAXCONTACTS];
 		int		totalContacts;
-		Contact newContact;
-		Contact	Contact[MAXCONTACTS];
 
 		void	addContact();
 		void	searchContact();
+	private:
+		class Contact newContact;
+
 };
 
 #endif
