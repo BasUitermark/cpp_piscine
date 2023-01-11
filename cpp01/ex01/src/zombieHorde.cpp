@@ -6,20 +6,28 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/11 14:40:36 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/11 15:34:19 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/11 22:15:25 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Zombie.hpp>
-#include <iostream>
+#include <sstream>
 
 Zombie	*zombieHorde(int N, std::string name)
 {
-	Zombie	*horde;
+	Zombie				*horde;
+	std::ostringstream	ss;
+	std::string			str;
 
 	horde = new Zombie[N];
 
 	for (int i = 0; i < N; i++)
-		horde[i].setName(name + " " +std::to_string(i));
+	{
+		ss << i + 1;
+		str = ss.str();
+		ss.str("");
+		ss.clear();
+		horde[i].setName(name + " " + str);
+	}
 	return(horde);
 }

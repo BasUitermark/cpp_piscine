@@ -6,12 +6,12 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/11 10:02:03 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/11 15:34:45 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/11 22:15:41 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "../include/Zombie.hpp"
+#include "Zombie.hpp"
 
 Zombie::Zombie()
 {

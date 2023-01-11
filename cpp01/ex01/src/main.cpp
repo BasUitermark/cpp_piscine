@@ -6,11 +6,14 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/11 10:07:04 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/11 15:24:57 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/11 22:15:31 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <../include/Zombie.hpp>
+#include <string>
+#include <sstream>
+#include <cstdlib>
+#include <Zombie.hpp>
 
 bool	isNumber(std::string input)
 {
@@ -27,7 +30,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3 || !isNumber(argv[1]))
 		return (EXIT_FAILURE);
-	N = std::stoi(argv[1]);
+	std::istringstream(argv[1]) >> N;
 
 	horde = zombieHorde(N, argv[2]);
 
