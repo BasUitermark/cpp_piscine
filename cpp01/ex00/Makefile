@@ -10,7 +10,7 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= PhonebookSimulator2023
+TARGET_NAME	:= ToBeOrNotToBe
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
 
@@ -24,8 +24,9 @@ RESET		= \033[0m
 # source files & object files
 SRC 		:= $(addprefix src/, $(addsuffix .cpp, \
 					main \
-					Phonebook \
-					Contact))
+					Zombie \
+					newZombie \
+					randomChump))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all

@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:33:00 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/10 17:54:27 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/11 14:29:28 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(void)
 		else if (command.compare("EXIT") == 0)
 			break ;
 		else
-			std::cout << RED "Command not found" RESET << std::endl;
+			std::cout << RED "Command not found" RESET << std::endl << std::endl;
 	}
 	std::cout << MAGENTA BOLD "Closing Phonebook Simulator 2023" RESET << std::endl;
 	return (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:37:34 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/10 17:32:29 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/11 14:28:59 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ std::string	fitToColumn(std::string str)
 	}
 }
 
-void	Phonebook::searchContact(void)
+void	displayPhonebook(Contact *Contact)
 {
 	std::string	fittedString;
 
@@ -111,5 +111,54 @@ void	Phonebook::searchContact(void)
 		if (i != 7)
 			std::cout << "|__________|__________|__________|__________|" << std::endl;
 	}
-	std::cout << "|*******************************************|" << std::endl;
+	std::cout << "|*******************************************|" << std::endl << std::endl;
+}
+
+bool	isNumber(std::string input)
+{
+	for (size_t i = 0; i < input.size(); i++)
+		if (!std::isdigit(input[i]))
+			return (false);
+	return (true);
+}
+
+void	displayContact(Contact Contact)
+{
+	std::cout << BOLD "First Name: \t" RESET << Contact.getFirstName() << std::endl;
+	std::cout << BOLD "Last Name: \t" RESET << Contact.getLastName() << std::endl;
+	std::cout << BOLD "Nickname: \t" RESET << Contact.getNickname() << std::endl;
+	std::cout << BOLD "Phonenumber: \t" RESET << Contact.getPhonenumber() << std::endl;
+	std::cout << BOLD "Secret: \t" RESET << Contact.getSecret() << std::endl << std::endl;
+}
+
+void	Phonebook::searchContact(void)
+{
+	int			index = 0;
+	std::string	input;
+
+	if (totalContacts == 0)
+	{
+		std::cout << RED "No contacts found in Phonebook" RESET << std::endl;
+		return ;
+	}
+
+	displayPhonebook(Contact);
+
+	std::cout << BOLD "Please enter the index of the contact you want display" RESET << std::endl;
+	while (true)
+	{
+		input = getInput();
+		if (!isNumber(input))
+		{
+			std::cout << RED "No valid index found" RESET << std::endl;
+			continue ;
+		}
+		index = std::stoi(input);
+		if (index >= 1 && index <= 8 && index <= totalContacts)
+		{
+			displayContact(Contact[index - 1]);
+			break ;
+		}
+		std::cout << RED "No valid index found" RESET << std::endl;
+	}
 }
