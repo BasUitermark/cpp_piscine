@@ -13,14 +13,6 @@ SRC_PATH	:= src
 TARGET_NAME	:= fixed
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
-
-# color macros
-GREEN		= \033[1;32m
-RED			= \033[1;31m
-BLUE		= \033[1;34m
-MAGENTA		= \033[1;35m
-RESET		= \033[0m
-
 # source files & object files
 SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
 					Fixed \
