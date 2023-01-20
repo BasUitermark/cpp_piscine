@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/18 17:57:27 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/20 16:29:59 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/20 16:36:50 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class Fixed
 
 		//== Static Member Functions ==//
 
-		Fixed&	Fixed::min(Fixed& a, Fixed& b);
-		Fixed&	Fixed::max(Fixed& a, Fixed& b);
-		const Fixed&	Fixed::min(const Fixed& a, const Fixed& b);
-		const Fixed&	Fixed::max(const Fixed& a, const Fixed& b);
+		static Fixed&	Fixed::min(Fixed& a, Fixed& b);
+		static Fixed&	Fixed::max(Fixed& a, Fixed& b);
+		static const Fixed&	Fixed::min(const Fixed& a, const Fixed& b);
+		static const Fixed&	Fixed::max(const Fixed& a, const Fixed& b);
 
 		//== Comparison Operators ==//
 
