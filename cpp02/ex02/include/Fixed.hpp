@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/18 17:57:27 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/20 16:36:50 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/20 16:38:31 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ class Fixed
 		
 		
 
-		bool	Fixed::operator == (const Fixed& toCompare) const
+		bool	Fixed::operator == (const Fixed& toCompare) const;
 		
 };
 	std::ostream& operator<<(std::ostream& out, const Fixed& toConvert);
