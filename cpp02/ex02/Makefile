@@ -10,23 +10,13 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= Violence
+TARGET_NAME	:= alsoFixed
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
-
-# color macros
-GREEN		= \033[1;32m
-RED			= \033[1;31m
-BLUE		= \033[1;34m
-MAGENTA		= \033[1;35m
-RESET		= \033[0m
-
 # source files & object files
-SRC 		:= $(addprefix src/, $(addsuffix .cpp, \
-					main \
-					HumanA \
-					HumanB \
-					Weapon))
+SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
+					Fixed \
+					main))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all
