@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 13:43:28 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/20 16:30:00 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/20 16:41:24 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@
 
 Fixed::Fixed(void) :_number(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int n) :_number(n << _fractionalBits)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float n) :_number(roundf(n * (1 << _fractionalBits)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 //========== Copy Constructor ==========//
 Fixed::Fixed(const Fixed& copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -42,7 +42,7 @@ Fixed::Fixed(const Fixed& copy)
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 //========== Member Functions ===========//
@@ -195,7 +195,7 @@ Fixed Fixed::operator -- (int)
 
 Fixed& Fixed::operator = (const Fixed& copy)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	this->_number = copy.getRawBits();
 	return (*this);
 }
