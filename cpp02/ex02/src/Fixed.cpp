@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 13:43:28 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/20 16:41:24 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/24 12:57:28 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Fixed::Fixed(const float n) :_number(roundf(n * (1 << _fractionalBits)))
 }
 
 //========== Copy Constructor ==========//
+
 Fixed::Fixed(const Fixed& copy)
 {
 	// std::cout << "Copy constructor called" << std::endl;

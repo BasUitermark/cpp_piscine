@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/20 17:04:11 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 15:34:06 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/24 16:58:30 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,13 @@ void	ClapTrap::attack(const std::string& target)
 	if (_hitPoints > 0 && _energyPoints > 0)
 	{
 		_energyPoints--;
-		std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " point of damage!" << std::endl;
+		std::cout << BLUE << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " point of damage!" RESET << std::endl;
 		return ;
 	}
-	std::cout << this->_name << " couldn't attack because it doesn't have enough HP or EP!" << std::endl;
+	if (_hitPoints <= 0)
+		std::cout << this->_name << " couldn't attack because it doesn't have enough HP!" << std::endl;
+	if (_energyPoints <= 0)
+		std::cout << this->_name << " couldn't attack because it doesn't have enough EP!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -125,10 +128,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (_hitPoints > 0)
 	{
 		_hitPoints -= amount;
-		std::cout << this->_name << " takes " << amount << " points of damage!" << std::endl;
+		std::cout << RED << this->_name << " takes " << amount << " points of damage!" RESET << std::endl;
 		return ;
 	}
-	std::cout << this->_name << "couldn't take damage because it ded!" << std::endl;
+	std::cout << this->_name << " couldn't take damage because it ded!" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -137,8 +140,19 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		_energyPoints--;
 		_hitPoints += amount;
-		std::cout << this->_name << " is healed and gains " << amount << " hitpoints!" << std::endl;
+		std::cout << GREEN << this->_name << " is healed and gains " << amount << " hitpoints!" RESET << std::endl;
 		return ;
 	}
-	std::cout << this->_name << "couldn't be repaired because it doesn't have enough HP or EP!" << std::endl;
+	if (_hitPoints <= 0)
+		std::cout << this->_name << " couldn't attack because it doesn't have enough HP!" << std::endl;
+	if (_energyPoints <= 0)
+		std::cout << this->_name << " couldn't attack because it doesn't have enough EP!" << std::endl;
+}
+
+void	ClapTrap::status(void)
+{
+	std::cout << BOLD YELLOW<< this->_name << " currently has: " << std::endl;
+	std::cout << "Hitpoints:\t" << this->_hitPoints << std::endl;
+	std::cout << "Energy points:\t" << this->_energyPoints << std::endl;
+	std::cout << "Attack damage:\t" << this->_attackDamage << RESET << std::endl;
 }
