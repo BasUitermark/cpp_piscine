@@ -10,17 +10,12 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= Zoo
+TARGET_NAME	:= AbstractIntelligentZoo
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
 # source files & object files
 SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
-					main \
-					Animal \
-					Dog \
-					Cat \
-					WrongAnimal \
-					WrongCat))
+					main))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all
