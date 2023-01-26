@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 09:51:24 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 11:05:56 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:32:11 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Dog: public Animal
 	public:
 		Dog();
 		~Dog();
+		Dog(const Dog& toCopy);
+		Dog& operator = (const Dog& toAssign);
 
 		void	makeSound() const;
 };

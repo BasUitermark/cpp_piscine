@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/24 14:29:32 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 17:04:03 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:29:50 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ScavTrap: public ClapTrap
 		ScavTrap(std::string name);
 		~ScavTrap();
 		ScavTrap(const ScavTrap& toCopy);
+		ScavTrap& operator = (const ScavTrap& toAssign);
 
 		void	guardGate();
 		void	attack(std::string target);

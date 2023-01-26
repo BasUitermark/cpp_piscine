@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/20 17:04:34 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 15:39:50 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:27:09 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ class ClapTrap
 		void	setEnergyPoints(int hitPoints);
 		void	setAttackDamage(int attackDamage);
 
-		std::string	getName(void);
-		int	getHitPoints(void);
-		int	getEnergyPoints(void);
-		int	getAttackDamage(void);
+		std::string	getName(void) const;
+		int	getHitPoints(void) const;
+		int	getEnergyPoints(void) const;
+		int	getAttackDamage(void) const;
 		
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);

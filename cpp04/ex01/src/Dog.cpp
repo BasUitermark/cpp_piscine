@@ -6,21 +6,19 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 09:55:04 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 13:20:43 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 17:00:24 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Dog.hpp"
-#include "../include/Brain.hpp"
 #include "../include/Utility.hpp"
 #include <iostream>
+#include <string>
 
 //========== Constructors ==========//
 
 Dog::Dog(): Animal("Dog")
 {
-	this->dogBrain = new Brain;
-
 	if(DEBUG_MESSAGE == 1)
 		std::cout << GREEN "Dog default constructor called" RESET << std::endl;
 }
@@ -29,17 +27,15 @@ Dog::Dog(): Animal("Dog")
 
 Dog::~Dog()
 {
-	delete	dogBrain;
-
 	if(DEBUG_MESSAGE == 1)
-		std::cout << RED "Dog default destructor called" RESET << std::endl;
+		std::cout << GREEN "Dog default destructor called" RESET << std::endl;
 }
 
 //========== Copy Constructor ==========//
 
-Dog::Dog(const Dog& toCopy)
+Dog::Dog(const Dog& toCopy): Dog(toCopy)
 {
-	if (DEBUG_MESSAGE == 1)
+	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Dog copy constructor called" RESET << std::endl;
 	*this = toCopy;
 }
@@ -48,10 +44,10 @@ Dog::Dog(const Dog& toCopy)
 
 Dog& Dog::operator = (const Dog& toAssign)
 {
-	if (DEBUG_MESSAGE == 1)
+	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Dog copy assignment operator called" RESET << std::endl;
-
-	this->_type = toAssign._type;
+	this->setType(toAssign.getType());
+	
 	return (*this);
 }
 

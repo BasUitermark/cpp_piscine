@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 10:02:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 10:59:58 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/26 10:42:20 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,26 @@ WrongCat::~WrongCat()
 {
 	if(DEBUG_MESSAGE == 1)
 		std::cout << "WrongCat default destructor called" << std::endl;
+}
+
+//========== Copy Constructor ==========//
+
+WrongCat::WrongCat(const WrongCat& toCopy)
+{
+	if (DEBUG_MESSAGE == 1)
+		std::cout << BLUE "WrongCat copy constructor called" RESET << std::endl;
+	*this = toCopy;
+}
+
+//========== Assignment Operator ==========//
+
+WrongCat& WrongCat::operator = (const WrongCat& toAssign)
+{
+	if (DEBUG_MESSAGE == 1)
+		std::cout << BLUE "WrongCat copy assignment operator called" RESET << std::endl;
+	this->setType(toAssign.getType());
+	
+	return (*this);
 }
 
 //========== Member Functions ==========//

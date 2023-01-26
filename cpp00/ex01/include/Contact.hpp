@@ -5,6 +5,13 @@
 
 class Contact
 {
+	private:
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickname;
+		std::string	_phonenumber;
+		std::string	_secret;
+
 	public:
 		void	insertFirstName(std::string input);
 		void	insertLastName(std::string input);
@@ -12,17 +19,11 @@ class Contact
 		void	insertPhonenumber(std::string input);
 		void	insertSecret(std::string input);
 
-		std::string	getFirstName();
-		std::string	getLastName();
-		std::string	getNickname();
-		std::string	getPhonenumber();
-		std::string	getSecret();
-	private:
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickname;
-		std::string	phonenumber;
-		std::string	secret;
+		std::string	getFirstName() const;
+		std::string	getLastName() const;
+		std::string	getNickname() const;
+		std::string	getPhonenumber() const;
+		std::string	getSecret() const;
 };
 
 #endif

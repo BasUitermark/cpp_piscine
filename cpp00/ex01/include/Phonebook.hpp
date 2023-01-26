@@ -5,17 +5,20 @@
 
 # define MAXCONTACTS 8
 
+#include "Contact.hpp"
+
 class Phonebook
 {
+	private:
+		Contact		_contacts[MAXCONTACTS];
+		int			_totalContacts;
+
 	public:
-		class Contact	Contact[MAXCONTACTS];
-		int				totalContacts;
+		Phonebook();
+		~Phonebook();
 
 		void	addContact();
 		void	searchContact();
-	private:
-		class Contact newContact;
-
 };
 
 #endif

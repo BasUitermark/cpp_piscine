@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/24 17:02:44 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 17:12:49 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:30:41 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,20 @@ FragTrap::FragTrap(const FragTrap& toCopy): ClapTrap(toCopy)
 	if (DEBUG_MESSAGE)
 		std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = toCopy;
+}
+
+//========== Assignment Operator ==========//
+
+FragTrap& FragTrap::operator = (const FragTrap& toAssign)
+{
+	if (DEBUG_MESSAGE)
+		std::cout << "Copy assignment operator called" << std::endl;
+	this->setName(toAssign.getName());
+	this->setHitPoints(toAssign.getHitPoints());
+	this->setEnergyPoints(toAssign.getEnergyPoints());
+	this->setAttackDamage(toAssign.getAttackDamage());
+	
+	return (*this);
 }
 
 void	FragTrap::highFivesGuys(void)

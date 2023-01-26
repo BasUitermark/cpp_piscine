@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:37:34 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/11 14:28:59 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/26 11:57:12 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 #include <Colors.hpp>
 #include <Phonebook.hpp>
 #include <Contact.hpp>
+
+Phonebook::Phonebook(): _totalContacts(0)
+{
+	
+}
+
+Phonebook::~Phonebook()
+{
+	
+}
 
 std::string	getInput(void)
 {
@@ -36,11 +46,12 @@ std::string	getInput(void)
 void	Phonebook::addContact(void)
 {
 	std::string	input;
+	Contact		newContact;
 
-	if (totalContacts + 1 == MAXCONTACTS)
+	if (this->_totalContacts + 1 == MAXCONTACTS)
 	{
-		std::cout << RED "Warning. You are trying to add more than 8 contacts. Adding more will result in overwriting previous entries" RESET << std::endl << std::endl;
-		totalContacts = 0;
+		std::cout << RED "Warning. You are trying to add more than 8 contacts. Overwriting previous entries." RESET << std::endl << std::endl;
+		this->_totalContacts = 0;
 	}
 	std::cout << "The simulator will now prompt you to enter some basic information" << std::endl;
 
@@ -65,9 +76,9 @@ void	Phonebook::addContact(void)
 	std::cout << std::endl;
 	newContact.insertSecret(input);
 
-	Contact[totalContacts % MAXCONTACTS] = newContact;
+	this->_contacts[_totalContacts % MAXCONTACTS] = newContact;
 	std::cout << GREEN "New contact has been added" RESET << std::endl << std::endl;
-	totalContacts += 1;
+	_totalContacts++;
 }
 
 std::string	fitToColumn(std::string str)
@@ -88,7 +99,7 @@ std::string	fitToColumn(std::string str)
 	}
 }
 
-void	displayPhonebook(Contact *Contact)
+void	displayPhonebook(Contact* _contacts)
 {
 	std::string	fittedString;
 
@@ -100,13 +111,13 @@ void	displayPhonebook(Contact *Contact)
 	{
 		std::cout << "|         " << i + 1;
 
-		fittedString = fitToColumn(Contact[i].getFirstName());
+		fittedString = fitToColumn(_contacts[i].getFirstName());
 		std::cout << "|" << fittedString;
 
-		fittedString = fitToColumn(Contact[i].getLastName());
+		fittedString = fitToColumn(_contacts[i].getLastName());
 		std::cout << "|" << fittedString;
 
-		fittedString = fitToColumn(Contact[i].getNickname());
+		fittedString = fitToColumn(_contacts[i].getNickname());
 		std::cout << "|" << fittedString << "|" << std::endl;
 		if (i != 7)
 			std::cout << "|__________|__________|__________|__________|" << std::endl;
@@ -136,13 +147,13 @@ void	Phonebook::searchContact(void)
 	int			index = 0;
 	std::string	input;
 
-	if (totalContacts == 0)
+	if (this->_totalContacts == 0)
 	{
 		std::cout << RED "No contacts found in Phonebook" RESET << std::endl;
 		return ;
 	}
 
-	displayPhonebook(Contact);
+	displayPhonebook(this->_contacts);
 
 	std::cout << BOLD "Please enter the index of the contact you want display" RESET << std::endl;
 	while (true)
@@ -154,9 +165,9 @@ void	Phonebook::searchContact(void)
 			continue ;
 		}
 		index = std::stoi(input);
-		if (index >= 1 && index <= 8 && index <= totalContacts)
+		if (index >= 1 && index <= 8 && index <= _totalContacts)
 		{
-			displayContact(Contact[index - 1]);
+			displayContact(this->_contacts[index - 1]);
 			break ;
 		}
 		std::cout << RED "No valid index found" RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 09:38:17 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 13:19:39 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:53:42 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ class Animal
 		Animal();
 		Animal(std::string type);
 		virtual ~Animal();
+		Animal(const Animal& toCopy);
+		Animal& operator = (const Animal& toAssign);
 
 		std::string		getType() const;
+		void			setType(std::string type);
 
 		virtual void	makeSound() const;
 

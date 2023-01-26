@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/24 14:34:36 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 17:12:37 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:29:36 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,20 @@ ScavTrap::ScavTrap(const ScavTrap& toCopy): ClapTrap(toCopy)
 	if (DEBUG_MESSAGE)
 		std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = toCopy;
+}
+
+//========== Assignment Operator ==========//
+
+ScavTrap& ScavTrap::operator = (const ScavTrap& toAssign)
+{
+	if (DEBUG_MESSAGE)
+		std::cout << "Copy assignment operator called" << std::endl;
+	this->setName(toAssign.getName());
+	this->setHitPoints(toAssign.getHitPoints());
+	this->setEnergyPoints(toAssign.getEnergyPoints());
+	this->setAttackDamage(toAssign.getAttackDamage());
+	
+	return (*this);
 }
 
 //========== Member Functions ==========//

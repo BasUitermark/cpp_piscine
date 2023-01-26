@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 10:02:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 10:59:58 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 17:05:19 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << "WrongCat default constructor called" << std::endl;
+		std::cout << GREEN "WrongCat default constructor called" RESET << std::endl;
 }
 
 //========== Destructor ==========//
@@ -28,7 +28,27 @@ WrongCat::WrongCat(): WrongAnimal("WrongCat")
 WrongCat::~WrongCat()
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << "WrongCat default destructor called" << std::endl;
+		std::cout << RED "WrongCat default destructor called" RESET << std::endl;
+}
+
+//========== Copy Constructor ==========//
+
+WrongCat::WrongCat(const WrongCat& toCopy)
+{
+	if (DEBUG_MESSAGE == 1)
+		std::cout << BLUE "WrongCat copy constructor called" RESET << std::endl;
+	*this = toCopy;
+}
+
+//========== Assignment Operator ==========//
+
+WrongCat& WrongCat::operator = (const WrongCat& toAssign)
+{
+	if (DEBUG_MESSAGE == 1)
+		std::cout << BLUE "WrongCat copy assignment operator called" RESET << std::endl;
+	this->setType(toAssign.getType());
+	
+	return (*this);
 }
 
 //========== Member Functions ==========//

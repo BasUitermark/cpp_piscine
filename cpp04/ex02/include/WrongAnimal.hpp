@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 09:38:17 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 11:06:35 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/26 10:42:48 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ class WrongAnimal
 		WrongAnimal();
 		WrongAnimal(std::string type);
 		~WrongAnimal();
+		WrongAnimal(const WrongAnimal& toCopy);
+		WrongAnimal& operator = (const WrongAnimal& toAssign);
 
 		std::string		getType() const;
+		void			setType(std::string type);
 
 		virtual void	makeSound() const;
 

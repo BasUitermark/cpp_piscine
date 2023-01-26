@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/24 17:00:25 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 17:11:34 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:30:13 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class FragTrap: public ClapTrap
 		FragTrap(std::string name);
 		~FragTrap();
 		FragTrap(const FragTrap& toCopy);
+		FragTrap& operator = (const FragTrap& toAssign);
 
 		void	highFivesGuys();
 };

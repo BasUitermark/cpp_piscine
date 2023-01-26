@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/20 17:04:11 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 16:58:30 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 15:26:58 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,22 +86,22 @@ void	ClapTrap::setAttackDamage(int attackDamage)
 	_attackDamage = attackDamage;
 }
 
-std::string	ClapTrap::getName(void)
+std::string	ClapTrap::getName(void) const
 {
 	return (this->_name);
 }
 
-int	ClapTrap::getHitPoints(void)
+int	ClapTrap::getHitPoints(void) const
 {
 	return (this->_hitPoints);
 }
 
-int	ClapTrap::getEnergyPoints(void)
+int	ClapTrap::getEnergyPoints(void) const
 {
 	return (this->_energyPoints);
 }
 
-int	ClapTrap::getAttackDamage(void)
+int	ClapTrap::getAttackDamage(void) const
 {
 	return (this->_attackDamage);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Main.cpp                                           :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:33:00 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/11 14:29:28 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/26 11:51:22 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(void)
 	Phonebook	Phonebook;
 	
 	initPrompt();
-	Phonebook.totalContacts = 0;
 	while (true)
 	{
 		if (std::cin)

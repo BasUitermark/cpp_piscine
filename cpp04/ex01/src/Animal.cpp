@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 09:40:42 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 13:22:05 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/25 16:59:33 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,36 @@ Animal::~Animal()
 		std::cout << RED "Animal default destructor called" RESET << std::endl;
 }
 
+//========== Copy Constructor ==========//
+
+Animal::Animal(const Animal& toCopy)
+{
+	if (DEBUG_MESSAGE)
+		std::cout << BLUE "Animal copy constructor called" RESET << std::endl;
+	*this = toCopy;
+}
+
+//========== Assignment Operator ==========//
+
+Animal& Animal::operator = (const Animal& toAssign)
+{
+	if (DEBUG_MESSAGE)
+		std::cout << BLUE "Animal copy assignment operator called" RESET << std::endl;
+	this->_type = toAssign._type;
+	
+	return (*this);
+}
+
 //========== Get/Set Functions ==========//
 
 std::string	Animal::getType() const
 {
 	return (this->_type);
+}
+
+void	Animal::setType(std::string type)
+{
+	this->_type = type;
 }
 
 //========== Member Functions ==========//
