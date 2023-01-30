@@ -6,13 +6,14 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 13:59:55 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/26 17:26:49 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/30 16:21:33 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
+# include "AForm.hpp"
 # include <string>
 # include <exception>
 
@@ -29,55 +30,17 @@
 
 # define DEBUG_MESSAGE 1
 
-class Bureaucrat;
-
-class Form
+class PresidentialPardonForm: public AForm
 {
 	private:
-		const std::string	_name;
-		bool				_isSigned;
-		const int			_gradeToSign;
-		const int			_gradeToExecute;
+		std::string	_target;
 	
 	public:
 		//== Constructors/Destructors ==//
-		Form(std::string name, int gradeToSign, int gradeToExecute);
-		~Form();
-		Form(const Form& toCopy);
-		Form&	operator = (const Form& toAssign);
-
-		//== Get/Set Functions ==//
-
-		std::string	getName() const;
-		bool		getIsSigned() const;
-		int			getToSign() const;
-		int			getToExecute() const;
-
-		//== Member Functions ==//
-
-		void	beSigned(Bureaucrat& a);
-
-		//== Exceptions ==//
-
-		class GradeTooHighException: public std::exception
-		{
-			public:
-				const char* what() const throw()
-				{
-					return (RED "Grade too high" RESET);
-				}
-		};
-
-		class GradeTooLowException: public std::exception
-		{
-			public:
-				const char* what() const throw()
-				{
-					return (RED "Grade too low" RESET);
-				}
-		};
+		PresidentialPardonForm(std::string target);
+		~PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm& toCopy);
+		PresidentialPardonForm&	operator = (const PresidentialPardonForm& toAssign);
 };
-
-std::ostream& 	operator<<(std::ostream& out, const Form& toConvert);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 14:08:40 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/26 17:23:30 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/30 15:57:35 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 //========== Constructors ==========//
 
-Form::Form(std::string name, int gradeToSign, int gradeToExecute)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
 : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << GREEN "Form default constructor called" RESET << std::endl;
+		std::cout << GREEN "AForm default constructor called" RESET << std::endl;
 
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
@@ -31,27 +31,27 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute)
 
 //========== Destructors ==========//
 
-Form::~Form()
+AForm::~AForm()
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << RED "Form default destructor called" RESET << std::endl;
+		std::cout << RED "AForm default destructor called" RESET << std::endl;
 }
 
 //========== Copy Constructor ==========//
 
-Form::Form(const Form& toCopy)
+AForm::AForm(const AForm& toCopy)
 : _name(toCopy.getName()), _isSigned(toCopy.getIsSigned()), _gradeToSign(toCopy.getToSign()), _gradeToExecute(toCopy.getToExecute())
 {
 	if (DEBUG_MESSAGE)
-		std::cout << BLUE "Form copy constructor called" RESET << std::endl;
+		std::cout << BLUE "AForm copy constructor called" RESET << std::endl;
 }
 
 //========== Assignment Operator ==========//
 
-Form& Form::operator = (const Form& toAssign)
+AForm& AForm::operator = (const AForm& toAssign)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << BLUE "Form copy assignment operator called" RESET << std::endl;
+		std::cout << BLUE "AForm copy assignment operator called" RESET << std::endl;
 	this->_isSigned = toAssign._isSigned;
 	
 	return (*this);
@@ -59,40 +59,40 @@ Form& Form::operator = (const Form& toAssign)
 
 //========== Get/Set Operator ==========//
 
-std::string	Form::getName() const
+std::string	AForm::getName() const
 {
 	return (this->_name);
 }
 
-bool	Form::getIsSigned() const
+bool	AForm::getIsSigned() const
 {
 	return (this->_isSigned);
 }
 
-int	Form::getToSign() const
+int	AForm::getToSign() const
 {
 	return (this->_gradeToSign);
 }
 
-int	Form::getToExecute() const
+int	AForm::getToExecute() const
 {
 	return (this->_gradeToExecute);
 }
 
 //========== Stream Operator ==========//
 
-void	Form::beSigned(Bureaucrat& a)
+void	AForm::beSigned(Bureaucrat& a)
 {
 	if (a.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else
 		_isSigned = true;
 }
 
 //========== Stream Operator ==========//
 
-std::ostream& operator<<(std::ostream& out, const Form& toConvert)
+std::ostream& operator<<(std::ostream& out, const AForm& toConvert)
 {
-	out << BOLD "Form\nName:\t\t\t" << toConvert.getName() << "\nSigned:\t\t\t" << std::boolalpha << toConvert.getIsSigned() << "\nGrade to sign:\t\t" << toConvert.getToSign() << "\nGrade to execute:\t" << toConvert.getToExecute() << std::endl; 
+	out << BOLD "AForm\nName:\t\t\t" << toConvert.getName() << "\nSigned:\t\t\t" << std::boolalpha << toConvert.getIsSigned() << "\nGrade to sign:\t\t" << toConvert.getToSign() << "\nGrade to execute:\t" << toConvert.getToExecute() << std::endl; 
 	return (out);
 }

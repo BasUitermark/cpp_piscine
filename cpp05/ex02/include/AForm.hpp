@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.hpp                                           :+:    :+:            */
+/*   AForm.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 13:59:55 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/26 17:12:18 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/30 16:20:57 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <string>
 # include <exception>
@@ -31,7 +31,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	_name;
@@ -41,10 +41,10 @@ class Form
 	
 	public:
 		//== Constructors/Destructors ==//
-		Form(std::string name, int gradeToSign, int gradeToExecute);
-		~Form();
-		Form(const Form& toCopy);
-		Form&	operator = (const Form& toAssign);
+		AForm(std::string name, int gradeToSign, int gradeToExecute);
+		virtual ~AForm();
+		AForm(const AForm& toCopy);
+		AForm&	operator = (const AForm& toAssign);
 
 		//== Get/Set Functions ==//
 
@@ -78,6 +78,6 @@ class Form
 		};
 };
 
-std::ostream& 	operator<<(std::ostream& out, const Form& toConvert);
+std::ostream& 	operator<<(std::ostream& out, const AForm& toConvert);
 
 #endif
