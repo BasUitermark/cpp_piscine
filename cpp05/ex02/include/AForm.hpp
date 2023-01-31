@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 13:59:55 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/30 16:20:57 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/31 12:37:42 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,15 @@ class AForm
 				const char* what() const throw()
 				{
 					return (RED "Grade too low" RESET);
+				}
+		};
+
+		class NotSignedException: public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return (RED "Form not signed" RESET);
 				}
 		};
 };

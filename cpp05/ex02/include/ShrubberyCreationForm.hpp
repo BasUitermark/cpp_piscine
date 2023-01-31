@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 13:59:55 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/30 15:59:41 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/31 12:43:51 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 
 # define DEBUG_MESSAGE 1
 
+class Bureaucrat;
+
 class ShrubberyCreationForm: public AForm
 {
 	private:
@@ -37,10 +39,12 @@ class ShrubberyCreationForm: public AForm
 	
 	public:
 		//== Constructors/Destructors ==//
-		ShrubberyCreationForm(std::string name, int gradeToSign, int gradeToExecute);
-		virtual ~ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
+		~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm& toCopy);
 		ShrubberyCreationForm&	operator = (const ShrubberyCreationForm& toAssign);
+
+		void	createShrubbery() const;
 };
 
 #endif

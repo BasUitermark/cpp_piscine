@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 15:58:19 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/30 16:04:13 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/31 10:41:17 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator = (const PresidentialPa
 {
 	if (DEBUG_MESSAGE)
 		std::cout << BLUE "PresidentialPardonForm copy assignment operator called" RESET << std::endl;
-	this->_isSigned = toAssign._isSigned;
+	this->_target = toAssign._target;
 	
 	return (*this);
 }

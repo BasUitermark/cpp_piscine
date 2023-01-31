@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 13:59:55 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/30 15:59:35 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/01/31 12:43:49 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 
 # define DEBUG_MESSAGE 1
 
+class Bureaucrat;
+
 class RobotomyRequestForm: public AForm
 {
 	private:
@@ -37,10 +39,12 @@ class RobotomyRequestForm: public AForm
 	
 	public:
 		//== Constructors/Destructors ==//
-		RobotomyRequestForm(std::string name, int gradeToSign, int gradeToExecute);
-		virtual ~RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+		~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& toCopy);
 		RobotomyRequestForm&	operator = (const RobotomyRequestForm& toAssign);
+
+		void	execute(Bureaucrat const& executor);
 };
 
 #endif
