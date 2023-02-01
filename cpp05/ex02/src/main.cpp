@@ -6,33 +6,86 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 13:49:20 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/26 17:23:38 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/02/01 12:57:45 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
+#include "../include/PresidentialPardonForm.hpp"
+#include "../include/RobotomyRequestForm.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 #include <iostream>
 
 int main(void)
 {
+	Bureaucrat	Frank("Frank", 137);
+	Bureaucrat	Phteven("Phteven", 45);
+	Bureaucrat	Sarah("Sarah", 5);
 
-	//== Form Grade Tests ==//
-	// Form	test1("TestValid", 100, 120);
-	// Form	test1("TestSignTooLow", 151, 120);
-	// Form	test1("TestSignTooHigh", 0, 120);
-	// Form	test1("TestExecuteTooLow", 100, 151);
-	// Form	test1("TestExecuteTooHigh", 100, 0);
-	// std::cout << test1;
+	ShrubberyCreationForm	shrubFrank("Garden Frank");
+	RobotomyRequestForm		robotPhteven("Robot Phteven");
+	PresidentialPardonForm	pardonSarah("Pardon Sarah");
 
-	//== Form Sign Tests ==//
-	// Bureaucrat	Steve("Steve", 100);
-	// Form		test2("TestValid", 120, 100);
-	// Form		test2("TestSignTooLow", 80, 100);
-	// test2.beSigned(Steve);
+	/*
+		Shrubbery: 
+			to sign:	145
+			to execute:	137 
+		Robotomy: 
+			to sign:	72
+			to execute:	45 
+		Pardon: 
+			to sign:	25
+			to execute:	5 
+	*/
 
-	//== Bureaucrat Sign Tests ==//
-	// Bureaucrat	Henry("Henry", 100);
-	// Form		test3("TestValid", 120, 100);
-	// Form		test3("TestSignTooLow", 80, 100);
-	// Henry.signForm(test3);
+	//== Shrubbery: sign succes, execute succes ==//
+	Frank.signForm(shrubFrank);
+	Frank.executeForm(shrubFrank);
+	std::cout << std::endl;
+
+	//== Shrubbery: sign succes, execute fail ==//
+	Frank.setGrade(138);
+	Frank.signForm(shrubFrank);
+	Frank.executeForm(shrubFrank);
+	std::cout << std::endl;
+
+	//== Shrubbery: sign fail, execute fail ==//
+	Frank.setGrade(146);
+	Frank.signForm(shrubFrank);
+	Frank.executeForm(shrubFrank);
+	std::cout << std::endl;
+
+	// //== Robotomy: sign succes, execute succes ==//
+	// Phteven.signForm(robotPhteven);
+	// Phteven.executeForm(robotPhteven);
+	// std::cout << std::endl;
+
+	// //== Robotomy: sign succes, execute fail ==//
+	// Phteven.setGrade(46);
+	// Phteven.signForm(robotPhteven);
+	// Phteven.executeForm(robotPhteven);
+	// std::cout << std::endl;
+
+	// //== Robotomy: sign fail, execute fail ==//
+	// Phteven.setGrade(73);
+	// Phteven.signForm(robotPhteven);
+	// Phteven.executeForm(robotPhteven);
+	// std::cout << std::endl;
+
+	// //== Pardon: sign succes, execute succes ==//
+	// Sarah.signForm(pardonSarah);
+	// Sarah.executeForm(pardonSarah);
+	// std::cout << std::endl;
+
+	// //== Pardon: sign succes, execute fail ==//
+	// Sarah.setGrade(6);
+	// Sarah.signForm(pardonSarah);
+	// Sarah.executeForm(pardonSarah);
+	// std::cout << std::endl;
+
+	// //== Pardon: sign fail, execute fail ==//
+	// Sarah.setGrade(26);
+	// Sarah.signForm(pardonSarah);
+	// Sarah.executeForm(pardonSarah);
+	// std::cout << std::endl;
 }
