@@ -10,18 +10,14 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= LetInternsDoTheShittyWork
+TARGET_NAME	:= Cast
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
 # source files & object files
 SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
 					main \
-					Bureaucrat \
-					AForm \
-					PresidentialPardonForm \
-					RobotomyRequestForm \
-					ShrubberyCreationForm \
-					Intern))
+					verifyType \
+					Convert))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all

@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 11:37:34 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/26 11:57:12 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/02/02 17:59:42 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <Phonebook.hpp>
 #include <Contact.hpp>
 
-Phonebook::Phonebook(): _totalContacts(0)
+Phonebook::Phonebook()
+: _totalContacts(0)
 {
 	
 }
@@ -48,7 +49,7 @@ void	Phonebook::addContact(void)
 	std::string	input;
 	Contact		newContact;
 
-	if (this->_totalContacts + 1 == MAXCONTACTS)
+	if (this->_totalContacts == MAXCONTACTS)
 	{
 		std::cout << RED "Warning. You are trying to add more than 8 contacts. Overwriting previous entries." RESET << std::endl << std::endl;
 		this->_totalContacts = 0;
