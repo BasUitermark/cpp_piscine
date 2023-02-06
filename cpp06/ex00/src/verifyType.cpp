@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/02 16:42:31 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/02 17:15:35 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/02/06 15:24:31 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool	isChar(std::string str)
  */
 int	verifyType(std::string convert)
 {
-	if (convert.length() == 1 && islower(convert[0]))
+	if (convert.length() == 1 && isalpha(convert[0]))
 		return (1);
 	else if ((convert.back() == 'f' && isNum(convert.substr(0, convert.size() - 1)) && hasDecimalPoint(convert)) \
 			|| convert.compare("nanf") == 0 || convert.compare("-inff") == 0 || convert.compare("+inff") == 0)
