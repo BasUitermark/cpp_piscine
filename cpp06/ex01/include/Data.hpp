@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   cpp06.h                                            :+:    :+:            */
+/*   Data.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/02 16:43:31 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/02 16:44:35 by buiterma      ########   odam.nl         */
+/*   Created: 2023/02/07 14:48:44 by buiterma      #+#    #+#                 */
+/*   Updated: 2023/02/07 16:05:19 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CPP06_H
-# define CPP06_H
+#ifndef DATA_HPP
+# define DATA_HPP
 
-#include <string>
+#define DEBUG_MESSAGE 0
 
-int	verifyType(std::string convert);
+class Data
+{
+	private:
+		int	_value;
+
+	public:
+		Data();
+		~Data();
+		Data(const Data& toCopy);
+
+		Data&	operator = (const Data& toAssign);
+
+		void	testFunction();
+};
 
 #endif

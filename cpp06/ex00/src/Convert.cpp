@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/02 11:37:36 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/06 16:59:52 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/02/07 14:14:16 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,51 @@ Convert& Convert::operator = (const Convert& toAssign)
 	return (*this);
 }
 
+int	Convert::verifyType()
+{
+	char*	end;
+
+	if (_str.length() == 1 && isalpha(_str[0]))
+		return (1);
+
+	std::strtol(_str.c_str(), &end, 10);
+	if (*end == '\0')
+		return (2);
+
+	std::strtod(_str.c_str(), &end);
+	if (*end == '\0')
+		return (3);
+
+	std::strtof(_str.c_str(), &end);
+	if ((*end == 'f' && *end + 1 == '\0') || \
+		_str.compare("-inff") == 0 || _str.compare("inff") == 0 || _str.compare("nanf") == 0)
+		return (4);
+
+	return (0);
+}
+
 void	Convert::convertFromChar()
 {
 	this->c = static_cast<char>(this->_str[0]);
 	
-	this->i = static_cast<int>(c);
+	this->i = static_cast<long int>(c);
 	this->d = static_cast<double>(c);
 	this->f = static_cast<float>(c);
 }
 void	Convert::convertFromInt()
 {
-	this->i = static_cast<int>(atoi(this->_str.c_str()));
+	this->il = static_cast<long int>(atol(this->_str.c_str()));
 	
-	this->c = static_cast<char>(i);
-	this->d = static_cast<double>(i);
-	this->f = static_cast<float>(i);
+	this->c = static_cast<char>(il);
+	this->d = static_cast<double>(il);
+	this->f = static_cast<float>(il);
 }
 void	Convert::convertFromDouble()
 {
 	this->d = static_cast<double>(atof(this->_str.c_str()));
 	
 	this->c = static_cast<char>(d);
-	this->i = static_cast<int>(d);
+	this->i = static_cast<long int>(d);
 	this->f = static_cast<float>(d);
 }
 void	Convert::convertFromFloat()
@@ -85,7 +108,7 @@ void	Convert::convertFromFloat()
 	this->f = static_cast<float>(atof(this->_str.c_str()));
 	
 	this->c = static_cast<char>(f);
-	this->i = static_cast<int>(f);
+	this->i = static_cast<long int>(f);
 	this->d = static_cast<double>(f);
 }
 
@@ -93,25 +116,24 @@ void	Convert::displayChar()
 {	
 	std::cout << "char:\t\t";
 
-	if (isprint(this->c))
+	if (isprint(this->c) && (this->il <= INT_MAX && this->il >= INT_MIN))
 		std::cout << this->c << std::endl;
-	else if (this->_str.compare("nan") == 0|| this->_str.compare("nanf") == 0)
-		std::cout << "impossible" << std::endl;
-	else
+	else if (isascii(this->c) && (this->il <= INT_MAX && this->il >= INT_MIN))
 		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << "impossible" << std::endl;
 }
 
 void	Convert::displayInt()
 {
 	std::cout << "int: \t\t";
-	if (this->_str.compare("nan") == 0|| this->_str.compare("nanf") == 0)
-		std::cout << "impossible" << std::endl;
-	else if (this->i > std::numeric_limits<int>::max())
-		std::cout << "> max" << std::endl;
-	else if (this->i < std::numeric_limits<int>::lowest())
-		std::cout << "< min" << std::endl;
-	else
+	if (this->il <= INT_MAX && this->il >= INT_MIN)
+	{
+		this->i = static_cast<int>(this->il);
 		std::cout<< this->i << std::endl;
+	}
+	else
+		std::cout << "impossible" << std::endl;
 }
 
 void	Convert::displayDouble()
@@ -120,12 +142,7 @@ void	Convert::displayDouble()
 	std::cout << std::setprecision(1);
 	std::cout << "double: \t";
 
-	if (this->d > std::numeric_limits<double>::max())
-		std::cout << "+inf" << std::endl;
-	else if (this->d < std::numeric_limits<double>::lowest())
-		std::cout << "-inf" << std::endl;
-	else
-		std::cout << this->d << std::endl;
+	std::cout << this->d << std::endl;
 }
 
 void	Convert::displayFloat()
@@ -134,12 +151,7 @@ void	Convert::displayFloat()
 	std::cout << std::setprecision(1);
 	std::cout << "float: \t\t";
 
-	if (this->d > std::numeric_limits<float>::max())
-		std::cout << "+inff" << std::endl;
-	else if (this->d < std::numeric_limits<float>::lowest())
-		std::cout << "-inff" << std::endl;
-	else
-		std::cout << this->f << "f" << std::endl;
+	std::cout << this->f << "f" << std::endl;
 }
 
 void	Convert::displayVariables()
@@ -150,8 +162,10 @@ void	Convert::displayVariables()
 	displayFloat();
 }
 
-void	Convert::convertLiterals(int type)
+void	Convert::convertLiterals()
 {
+	int	type = verifyType();
+
 	switch (type)
 	{
 		case 1:

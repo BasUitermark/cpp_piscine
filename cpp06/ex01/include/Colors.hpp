@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Colors.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/01 18:09:16 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/07 14:15:14 by buiterma      ########   odam.nl         */
+/*   Created: 2023/01/10 14:27:13 by buiterma      #+#    #+#                 */
+/*   Updated: 2023/01/10 14:27:49 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cstdlib>
-#include <limits>
-#include <iomanip>
-#include "../include/Convert.hpp"
-#include "../include/Colors.hpp"
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-int main(int argc, char const *argv[])
-{
-	if (argc != 2)
-	{
-		std::cerr << RED "Too many arguments" RESET << std::endl;
-		return (EXIT_FAILURE);
-	}
-	Convert	newConvert(argv[1]);
+# define RED		"\x1b[31m"
+# define GREEN		"\x1b[32m"
+# define YELLOW		"\x1b[33m"
+# define BLUE		"\x1b[34m"
+# define MAGENTA	"\x1b[35m"
+# define CYAN		"\x1b[36m"
+# define RESET		"\x1b[0m"
 
-	newConvert.convertLiterals();
-}
+# define BOLD		"\x1b[1m"
+# define ITALIC		"\x1b[3m"
+
+#endif
