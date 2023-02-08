@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/02 11:37:36 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/07 14:14:16 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/02/08 17:21:03 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void	Convert::displayInt()
 	{
 		this->i = static_cast<int>(this->il);
 		std::cout<< this->i << std::endl;
+		std::cout<< this->il << std::endl;
 	}
 	else
 		std::cout << "impossible" << std::endl;

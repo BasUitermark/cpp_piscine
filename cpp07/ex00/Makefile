@@ -10,13 +10,12 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= Identify
+TARGET_NAME	:= Template
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
 # source files & object files
 SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
-					main \
-					Base))
+					main))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all

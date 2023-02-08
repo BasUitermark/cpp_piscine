@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Base.hpp                                           :+:    :+:            */
+/*   A.hpp                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/08 10:50:51 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/08 11:07:58 by buiterma      ########   odam.nl         */
+/*   Created: 2023/02/08 10:49:29 by buiterma      #+#    #+#                 */
+/*   Updated: 2023/02/08 10:55:06 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-# define BASE_HPP
+#ifndef A_HPP
+# define A_HPP
 
-#define DEBUG_MESSAGE 0
+#include "Base.hpp"
 
-class Base
-{
-	public:
-		virtual ~Base();
-};
+class A: public Base
+{};
 
 #endif

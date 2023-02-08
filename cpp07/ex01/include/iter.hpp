@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Base.hpp                                           :+:    :+:            */
+/*   iter.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/08 10:50:51 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/08 11:07:58 by buiterma      ########   odam.nl         */
+/*   Created: 2023/02/08 12:08:47 by buiterma      #+#    #+#                 */
+/*   Updated: 2023/02/08 15:50:27 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-# define BASE_HPP
+#include <cstddef>
 
-#define DEBUG_MESSAGE 0
-
-class Base
+template <typename T>
+void iter(T* array, size_t arraySize, void (*f)(T&))
 {
-	public:
-		virtual ~Base();
-};
-
-#endif
+	for (size_t i = 0; i < arraySize; i++)
+		(*f)(array[i]);
+}

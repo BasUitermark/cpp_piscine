@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 14:32:08 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/07 16:15:43 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/02/07 16:53:46 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(void)
 	std::cout << std::endl;
 
 	std::cout << BOLD "\t\t|POST CAST|" RESET << std::endl;
+	std::cout << "uintptr ptr: \t" << &serialized << std::endl;
 	std::cout << "uintptr: \t" << serialized << std::endl;
 	std::cout << std::endl;
 

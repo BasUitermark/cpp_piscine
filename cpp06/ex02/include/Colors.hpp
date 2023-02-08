@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Base.hpp                                           :+:    :+:            */
+/*   Colors.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/08 10:50:51 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/08 11:07:58 by buiterma      ########   odam.nl         */
+/*   Created: 2023/01/10 14:27:13 by buiterma      #+#    #+#                 */
+/*   Updated: 2023/01/10 14:27:49 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-# define BASE_HPP
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-#define DEBUG_MESSAGE 0
+# define RED		"\x1b[31m"
+# define GREEN		"\x1b[32m"
+# define YELLOW		"\x1b[33m"
+# define BLUE		"\x1b[34m"
+# define MAGENTA	"\x1b[35m"
+# define CYAN		"\x1b[36m"
+# define RESET		"\x1b[0m"
 
-class Base
-{
-	public:
-		virtual ~Base();
-};
+# define BOLD		"\x1b[1m"
+# define ITALIC		"\x1b[3m"
 
 #endif
