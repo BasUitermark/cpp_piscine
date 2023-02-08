@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/02 11:37:36 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/08 17:21:03 by buiterma      ########   odam.nl         */
+/*   Updated: 2023/02/08 18:30:04 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ int	Convert::verifyType()
 		return (3);
 
 	std::strtof(_str.c_str(), &end);
-	if ((*end == 'f' && *end + 1 == '\0') || \
+	// if ((*end == 'f' && *end + 1 == '\0') ||
+	if (end[_str.size() + 1] == '\0' || \
 		_str.compare("-inff") == 0 || _str.compare("inff") == 0 || _str.compare("nanf") == 0)
 		return (4);
 
@@ -100,7 +101,7 @@ void	Convert::convertFromDouble()
 	this->d = static_cast<double>(atof(this->_str.c_str()));
 	
 	this->c = static_cast<char>(d);
-	this->i = static_cast<long int>(d);
+	this->il = static_cast<long int>(d);
 	this->f = static_cast<float>(d);
 }
 void	Convert::convertFromFloat()
@@ -108,7 +109,7 @@ void	Convert::convertFromFloat()
 	this->f = static_cast<float>(atof(this->_str.c_str()));
 	
 	this->c = static_cast<char>(f);
-	this->i = static_cast<long int>(f);
+	this->il = static_cast<long int>(f);
 	this->d = static_cast<double>(f);
 }
 
@@ -131,7 +132,6 @@ void	Convert::displayInt()
 	{
 		this->i = static_cast<int>(this->il);
 		std::cout<< this->i << std::endl;
-		std::cout<< this->il << std::endl;
 	}
 	else
 		std::cout << "impossible" << std::endl;
