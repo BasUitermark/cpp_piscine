@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   WrongCat.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/25 10:02:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 17:05:19 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/WrongCat.hpp"
 #include "../include/Utility.hpp"
 #include <iostream>

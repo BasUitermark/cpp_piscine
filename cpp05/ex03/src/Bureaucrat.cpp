@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.cpp                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/26 10:50:19 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/01 12:37:14 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/Bureaucrat.hpp"
 #include "../include/AForm.hpp"
 #include <iostream>

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ClapTrap.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/20 17:04:11 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 15:26:58 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/ClapTrap.hpp"
 #include <string>
 #include <iostream>

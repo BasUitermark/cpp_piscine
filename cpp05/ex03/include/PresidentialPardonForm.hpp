@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   PresidentialPardonForm.hpp                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/26 13:59:55 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/01 12:41:18 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 

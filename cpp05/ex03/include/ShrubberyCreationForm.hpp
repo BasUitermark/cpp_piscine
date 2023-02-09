@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/26 13:59:55 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/01 12:40:30 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 

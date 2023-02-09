@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Dog.cpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/25 09:55:04 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 13:34:46 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/Dog.hpp"
 #include "../include/Brain.hpp"
 #include "../include/Utility.hpp"

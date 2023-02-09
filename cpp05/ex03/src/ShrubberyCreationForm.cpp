@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ShrubberyCreationForm.cpp                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/30 15:58:19 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/02 11:07:32 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/AForm.hpp"
 #include "../include/Bureaucrat.hpp"
 #include "../include/ShrubberyCreationForm.hpp"

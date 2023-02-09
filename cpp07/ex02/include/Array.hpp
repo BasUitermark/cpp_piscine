@@ -1,36 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Array.hpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/02/02 11:35:10 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/08 18:18:11 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
-// #ifndef ARRAY_HPP
-// # define ARRAY_HPP
-
-// template <typename T>
-// class Array
-// {
-// 	private:
-// 		T*	_array;
-
-// 	public:
-// 		Array();
-// 		Array(unsigned int n);
-// 		~Array();
-// 		Array(const Array& toCopy);
-
-// 		Array&	operator = (const Array& toAssign);
-// };
-
-// #include "../src/Array.tpp"
-
-// #endif
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
@@ -59,7 +27,7 @@ class Array
 
 	public:
 	Array();
-	Array(size_t n, T defaultVal);
+	Array(unsigned int n);
 	~Array();
 	
 	Array(const Array& copy);

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   WrongAnimal.cpp                                    :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/25 10:48:22 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/25 17:04:05 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/WrongAnimal.hpp"
 #include "../include/Utility.hpp"
 #include <iostream>

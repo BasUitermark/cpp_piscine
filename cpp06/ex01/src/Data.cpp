@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Data.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/02/07 14:47:38 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/07 16:04:57 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/Data.hpp"
 #include "../include/Colors.hpp"
 #include <iostream>

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Animal.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/25 09:40:42 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/26 10:51:44 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/Animal.hpp"
 #include "../include/Utility.hpp"
 #include <iostream>

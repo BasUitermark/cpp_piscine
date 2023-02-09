@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/20 17:36:48 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/24 16:59:15 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/ClapTrap.hpp"
 #include "../include/ScavTrap.hpp"
 #include <iostream>

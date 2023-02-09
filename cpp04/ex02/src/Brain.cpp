@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Brain.cpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/25 12:46:03 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/01/26 10:44:01 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/Brain.hpp"
 #include "../include/Utility.hpp"
 #include <iostream>

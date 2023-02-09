@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Intern.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/26 10:50:19 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/01 15:47:59 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/Intern.hpp"
 #include "../include/AForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"

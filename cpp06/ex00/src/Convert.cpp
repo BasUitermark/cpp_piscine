@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Convert.cpp                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/02/02 11:37:36 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/08 18:30:04 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/Convert.hpp"
 #include "../include/Colors.hpp"
 #include <iostream>
@@ -72,8 +60,7 @@ int	Convert::verifyType()
 		return (3);
 
 	std::strtof(_str.c_str(), &end);
-	// if ((*end == 'f' && *end + 1 == '\0') ||
-	if (end[_str.size() + 1] == '\0' || \
+	if ((*end == 'f' && end[_str.length() + 1] == '\0') || \
 		_str.compare("-inff") == 0 || _str.compare("inff") == 0 || _str.compare("nanf") == 0)
 		return (4);
 
@@ -84,7 +71,7 @@ void	Convert::convertFromChar()
 {
 	this->c = static_cast<char>(this->_str[0]);
 	
-	this->i = static_cast<long int>(c);
+	this->il = static_cast<long int>(c);
 	this->d = static_cast<double>(c);
 	this->f = static_cast<float>(c);
 }

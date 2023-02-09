@@ -5,20 +5,19 @@
 template<typename T>
 Array<T>::Array()
 {
-	this->_array = new T[n];
+	this->_array = new T[0];
 	if(DEBUG_MESSAGE == 1)
-		std::cout << GREEN "Data default constructor called" RESET << std::endl;
+		std::cout << GREEN "Array default constructor called" RESET << std::endl;
 	return;
 }
 
 template<typename T>
-Array<T>::Array(size_t n, T defaultVal)
+Array<T>::Array(unsigned int n)
 {
 	this->_array = new T[n];
-	for (size_t i = 0; i < this->_len; i++)
-		(*this)[i] = defaultVal;
+
 	if(DEBUG_MESSAGE == 1)
-		std::cout << GREEN "Data default constructor called" RESET << std::endl;
+		std::cout << GREEN "Array default constructor called" RESET << std::endl;
 	return;
 }
 
@@ -27,32 +26,32 @@ Array<T>::~Array()
 {
 	delete[] this->_array;
 	if(DEBUG_MESSAGE == 1)
-		std::cout << GREEN "Data default destructor called" RESET << std::endl;
+		std::cout << GREEN "Array default destructor called" RESET << std::endl;
 	return;
 }
 
 template<typename T>
-Array<T>::Array(const Array& copy)
+Array<T>::Array(const Array& toCopy)
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << GREEN "Data default copy constructor called" RESET << std::endl;
+		std::cout << GREEN "Array default copy constructor called" RESET << std::endl;
 	this->_array = NULL;
-	*this = copy;
+	*this = toCopy;
 	return;
 }
 
 template<typename T>
-Array<T>& Array<T>::operator= (const Array<T>& assignment)
+Array<T>& Array<T>::operator= (const Array<T>& toAssign)
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << GREEN "Data default assignment operator called" RESET << std::endl;
-	if (this != &assignment)
+		std::cout << GREEN "Array default toAssign operator called" RESET << std::endl;
+	if (this != &toAssign)
 	{
-		this->_len = assignment.size();
+		this->_len = toAssign.size();
 		delete[] this->_array;
-		this->_array = new T[assignment.size()];
-		for (size_t i = 0; i < assignment.size(); i++)
-			this->_array[i] = assignment[i];
+		this->_array = new T[this->_len];
+		for (size_t i = 0; i < toAssign.size(); i++)
+			this->_array[i] = toAssign[i];
 	}
 	return(*this);
 }

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   RobotomyRequestForm.cpp                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/30 15:58:19 by buiterma      #+#    #+#                 */
-/*   Updated: 2023/02/01 12:56:03 by buiterma      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/AForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/Bureaucrat.hpp"
