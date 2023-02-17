@@ -10,7 +10,7 @@ class Animal
 	public:
 		Animal();
 		Animal(std::string type);
-		~Animal();
+		virtual ~Animal();
 		Animal(const Animal& toCopy);
 		Animal& operator = (const Animal& toAssign);
 

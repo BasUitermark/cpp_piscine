@@ -10,7 +10,7 @@ class WrongAnimal
 	public:
 		WrongAnimal();
 		WrongAnimal(std::string type);
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		WrongAnimal(const WrongAnimal& toCopy);
 		WrongAnimal& operator = (const WrongAnimal& toAssign);
 
@@ -18,7 +18,7 @@ class WrongAnimal
 		std::string		getType() const;
 		void			setType(std::string type);
 
-		virtual void	makeSound() const;
+		void	makeSound() const;
 
 	protected:
 		std::string	_type;

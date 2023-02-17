@@ -16,7 +16,7 @@ WrongAnimal::WrongAnimal()
 WrongAnimal::WrongAnimal(std::string type): _type(type)
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << RED "WrongAnimal default constructor called" RESET << std::endl;
+		std::cout << GREEN "WrongAnimal default constructor called" RESET << std::endl;
 }
 
 //========== Destructors ==========//
