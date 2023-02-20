@@ -10,21 +10,13 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= Harl
+TARGET_NAME	:= Span
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
-
-# color macros
-GREEN		= \033[1;32m
-RED			= \033[1;31m
-BLUE		= \033[1;34m
-MAGENTA		= \033[1;35m
-RESET		= \033[0m
-
 # source files & object files
-SRC 		:= $(addprefix src/, $(addsuffix .cpp, \
+SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
 					main \
-					Harl))
+					Span))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all
@@ -37,14 +29,8 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp
 
 all: $(TARGET)
 
-run1: default
-	./$(TARGET) debug
-run2: default
-	./$(TARGET) info
-run3: default
-	./$(TARGET) warning
-run4: default
-	./$(TARGET) error
+run: default
+	./$(TARGET)
 
 mkdir:
 	@mkdir -p $(BIN_PATH) $(OBJ_PATH)
@@ -55,5 +41,5 @@ clean:
 fclean: clean
 	@rm -rf $(BIN_PATH)
 
-re:	fclean all
+re:	fclean default
 .PHONY: clean fclean re run mkdir

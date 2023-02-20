@@ -8,20 +8,16 @@ int main(void)
 	ClapTrap	N3;
 	ClapTrap	N4(N2);
 
-	ScavTrap	S1("S1");
-
 	std::cout << std::endl;
 
 	N1.attack("enemy");
 	N1.takeDamage(10);
 	// N1.beRepaired(10);
-	N1.status();
 	std::cout << std::endl;
 	N3 = N1;
 
 	N2.takeDamage(10);
 	N2.attack("enemy");
-	// N2.beRepaired(8);
 	std::cout << std::endl;
 	
 	N3.attack("enemy");

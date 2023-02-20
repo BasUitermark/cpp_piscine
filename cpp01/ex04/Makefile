@@ -28,11 +28,6 @@ OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all
 
-ifeq (run,$(firstword $(MAKECMDGOALS)))
-  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  $(eval $(RUN_ARGS):;@:)
-endif
-
 $(TARGET): $(OBJ)
 	@$(CC) -o $@ $(OBJ) $(HDR_PATH) $(CFLAGS)
 
@@ -41,8 +36,12 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp
 
 all: $(TARGET)
 
-run: default
-	./$(TARGET) $(RUN_ARGS)
+run1: default
+	./$(TARGET) test_files/test1.txt Pancakes Eggs
+run2: default
+	./$(TARGET) test_files/test2.txt Strawberry Melons
+run3: default
+	./$(TARGET) test_files/test2.txt " " "Hello World"
 
 mkdir:
 	@mkdir -p $(BIN_PATH) $(OBJ_PATH)

@@ -17,6 +17,6 @@ int main(void)
 	test.push_back(100);
 	test.push_back(9);
 
-	find = easyfind(test, 4);
+	find = easyfind(test, 16);
 	std::cout << *find << std::endl;
 }

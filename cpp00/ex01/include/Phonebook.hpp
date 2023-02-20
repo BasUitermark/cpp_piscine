@@ -12,6 +12,7 @@ class Phonebook
 	private:
 		Contact		_contacts[MAXCONTACTS];
 		int			_totalContacts;
+		bool		_reset;
 
 	public:
 		Phonebook();

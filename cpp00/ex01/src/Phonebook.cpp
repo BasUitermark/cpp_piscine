@@ -5,14 +5,14 @@
 #include <Contact.hpp>
 
 Phonebook::Phonebook()
-: _totalContacts(0)
+: _totalContacts(0), _reset(false)
 {
-	
+
 }
 
 Phonebook::~Phonebook()
 {
-	
+
 }
 
 std::string	getInput(void)
@@ -39,8 +39,16 @@ void	Phonebook::addContact(void)
 
 	if (this->_totalContacts == MAXCONTACTS)
 	{
-		std::cout << RED "Warning. You are trying to add more than 8 contacts. Overwriting previous entries." RESET << std::endl << std::endl;
-		this->_totalContacts = 0;
+		std::cout << RED "Warning. You are trying to add more than 8 contacts" RESET << std::endl << std::endl;
+		std::cout << RED "Continuing will result in overwriting previous entries. Do you want to continue? y/n" RESET << std::endl << std::endl;
+		input = getInput();
+		if (input.compare("y") == 0)
+		{
+			this->_totalContacts = 0;
+			this->_reset = true;
+		}
+		else if (input.compare("n") == 0)
+			return ;
 	}
 	std::cout << "The simulator will now prompt you to enter some basic information" << std::endl;
 
@@ -66,8 +74,8 @@ void	Phonebook::addContact(void)
 	newContact.insertSecret(input);
 
 	this->_contacts[_totalContacts % MAXCONTACTS] = newContact;
-	std::cout << GREEN "New contact has been added" RESET << std::endl << std::endl;
 	_totalContacts++;
+	std::cout << GREEN "New contact has been added on slot #" << _totalContacts << RESET << std::endl << std::endl;
 }
 
 std::string	fitToColumn(std::string str)
@@ -153,8 +161,8 @@ void	Phonebook::searchContact(void)
 			std::cout << RED "No valid index found" RESET << std::endl;
 			continue ;
 		}
-		index = std::stoi(input);
-		if (index >= 1 && index <= 8 && index <= _totalContacts)
+		index = atoi(input.c_str());
+		if (index >= 1 && index <= 8 && (index <= _totalContacts || _reset == true))
 		{
 			displayContact(this->_contacts[index - 1]);
 			break ;

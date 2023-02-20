@@ -1,23 +1,26 @@
 #include <iostream>
-#include "Zombie.hpp"
+#include "../include/Zombie.hpp"
 
 Zombie::Zombie()
 {
-	std::cout << "\x1b[32m\x1b[1mBlank zombie created." << std::endl;
+	if(DEBUG_MESSAGE == 1)
+		std::cout << GREEN BOLD "Zombie default constructor called" RESET << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "\x1b[31m\x1b[1mZombie named: \x1b[0m\"" << this->name << "\" destroyed." << std::endl;
+	if(DEBUG_MESSAGE == 1)
+		std::cout << RED BOLD "Zombie default destructor called" RESET << std::endl;
 }
 
-void	Zombie::announce(void)
+void Zombie::announce(void)
 {
-	std::cout << "\x1b[34m\x1b[1m" << name << "\x1b[0m" << ":\tBraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << BLUE BOLD << _name << RESET << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
+
 
 void	Zombie::setName(std::string name)
 {
-	if (this->name.empty())
-		this->name = name;
+	if (this->_name.empty())
+		this->_name = name;
 }

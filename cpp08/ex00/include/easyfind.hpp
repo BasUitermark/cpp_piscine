@@ -20,7 +20,7 @@ class ElementNotFound: public std::exception
 	public:
 		const char* what() const throw()
 		{
-			return (RED "Grade too high" RESET);
+			return (RED "Target not in array" RESET);
 		}
 };
 

@@ -30,11 +30,6 @@ OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all
 
-ifeq (run,$(firstword $(MAKECMDGOALS)))
-  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  $(eval $(RUN_ARGS):;@:)
-endif
-
 $(TARGET): $(OBJ)
 	@$(CC) -o $@ $(OBJ) $(HDR_PATH) $(CFLAGS)
 

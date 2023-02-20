@@ -1,6 +1,6 @@
 
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 # define RED		"\x1b[31m"
 # define GREEN		"\x1b[32m"
@@ -19,22 +19,20 @@
 #include <iostream>
 
 template<typename T>
-class Array
+class MutantStack
 {
 	private:
 	T*	_array;
 	int	_len;
 
 	public:
-	Array();
-	Array(unsigned int n);
-	~Array();
+	MutantStack();
+	MutantStack(unsigned int n);
+	~MutantStack();
 	
-	Array(const Array& copy);
-	Array&	operator= (const Array& assignment);
+	MutantStack(const MutantStack& copy);
+	MutantStack&	operator= (const MutantStack& assignment);
 	T&		operator[] (size_t i) const;
-
-	size_t	size(void) const;
 
 	private:
 	class	IndexOutOfBoundsException: public std::exception
@@ -47,9 +45,6 @@ class Array
 	};
 };
 
-template<typename T>
-std::ostream& operator<< (std::ostream& o, const Array<T>& a);
-
-#include "../src/Array.tpp"
+#include "../src/MutantStack.tpp"
 
 #endif

@@ -1,7 +1,6 @@
 #include <string>
-#include <sstream>
 #include <cstdlib>
-#include <Zombie.hpp>
+#include "../include/Zombie.hpp"
 
 bool	isNumber(std::string input)
 {
@@ -13,13 +12,15 @@ bool	isNumber(std::string input)
 
 int main(int argc, char **argv)
 {
-	int		N;
-	Zombie	*horde;
+	int			N;
+	std::string	input;
+	Zombie		*horde;
 
-	if (argc != 3 || !isNumber(argv[1]))
+	input = argv[1];
+	if (argc != 3 || !isNumber(input))
 		return (EXIT_FAILURE);
-	std::istringstream(argv[1]) >> N;
 
+	N = atoi(input.c_str());
 	horde = zombieHorde(N, argv[2]);
 
 	for (int i = 0; i < N; i++)
