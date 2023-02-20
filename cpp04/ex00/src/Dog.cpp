@@ -16,12 +16,12 @@ Dog::Dog(): Animal("Dog")
 Dog::~Dog()
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << GREEN "Dog default destructor called" RESET << std::endl;
+		std::cout << RED "Dog default destructor called" RESET << std::endl;
 }
 
 //========== Copy Constructor ==========//
 
-Dog::Dog(const Dog& toCopy): Dog(toCopy)
+Dog::Dog(const Dog& toCopy)
 {
 	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Dog copy constructor called" RESET << std::endl;

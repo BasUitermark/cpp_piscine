@@ -21,7 +21,7 @@ Cat::~Cat()
 
 //========== Copy Constructor ==========//
 
-Cat::Cat(const Cat& toCopy): Cat(toCopy)
+Cat::Cat(const Cat& toCopy)
 {
 	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Cat copy constructor called" RESET << std::endl;

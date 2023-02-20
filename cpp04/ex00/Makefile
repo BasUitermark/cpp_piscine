@@ -1,6 +1,6 @@
 # tool macros
 CC			:= c++
-CFLAGS 		:= -Wall -Werror -Wextra -std=c++98
+# CFLAGS 		:= -Wall -Werror -Wextra -std=c++98
 COBJFLAGS 	:= $(CFLAGS) -c
 
 # path macros
@@ -45,5 +45,5 @@ clean:
 fclean: clean
 	@rm -rf $(BIN_PATH)
 
-re:	fclean all
+re:	fclean default
 .PHONY: clean fclean re run mkdir
