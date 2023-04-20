@@ -24,10 +24,9 @@ void	Harl::complain(std::string level)
 
 	for (int i = 0; i < 4; i++)
 	{
-		void (Harl::*Complaint)() = complaints[i];
 		if (level == levels[i])
 		{
-			(this->*Complaint)();
+			(this->*complaints[i])();
 			return;
 		}
 	}

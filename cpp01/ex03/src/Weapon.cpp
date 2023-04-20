@@ -1,12 +1,8 @@
 #include <Weapon.hpp>
 #include <string>
 
-Weapon::Weapon()
-{
-	return;
-}
-
-Weapon::Weapon(std::string newType): type(newType)
+Weapon::Weapon(std::string newType)
+: type(newType)
 {
 	return;
 }

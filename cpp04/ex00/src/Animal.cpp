@@ -5,10 +5,8 @@
 
 //========== Constructors ==========//
 
-Animal::Animal()
+Animal::Animal(): _type("No type found")
 {
-	this->_type = RED "NO_NAME" RESET;
-
 	if(DEBUG_MESSAGE == 1)
 		std::cout << GREEN "Animal default constructor called" RESET << std::endl;
 }
@@ -52,11 +50,6 @@ Animal& Animal::operator = (const Animal& toAssign)
 std::string	Animal::getType() const
 {
 	return (this->_type);
-}
-
-void	Animal::setType(std::string type)
-{
-	this->_type = type;
 }
 
 //========== Member Functions ==========//

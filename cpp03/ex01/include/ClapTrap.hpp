@@ -3,7 +3,7 @@
 
 #include <string>
 
-#define DEBUG_MESSAGE 0
+#define DEBUG_MESSAGE 1
 
 # define RED		"\x1b[31m"
 # define GREEN		"\x1b[32m"
@@ -18,14 +18,13 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string	_name;
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;
 	
 	public:
-		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap& toCopy);

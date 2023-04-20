@@ -1,5 +1,5 @@
 #include "../include/Fixed.hpp"
-#include <iostream>
+#include <iostream> 
 #include <cmath>
 
 //== Constructors & Destructors ==//

@@ -14,9 +14,6 @@ class WrongAnimal
 		WrongAnimal(const WrongAnimal& toCopy);
 		WrongAnimal& operator = (const WrongAnimal& toAssign);
 
-		std::string		getType() const;
-		void			setType(std::string type);
-
 		virtual void	makeSound() const;
 
 	protected:

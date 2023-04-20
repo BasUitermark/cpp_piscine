@@ -11,7 +11,7 @@ Zombie::Zombie(std::string name)
 Zombie::~Zombie()
 {
 	if(DEBUG_MESSAGE == 1)
-		std::cout << RED BOLD "Zombie default destructor called" RESET << std::endl;
+		std::cout << RED BOLD << _name << ": Zombie default destructor called" RESET << std::endl;
 }
 
 void Zombie::announce(void)

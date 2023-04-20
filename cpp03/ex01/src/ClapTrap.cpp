@@ -4,16 +4,10 @@
 
 //========== Constructors ==========//
 
-ClapTrap::ClapTrap()
-{
-	if (DEBUG_MESSAGE)
-		std::cout << "Default constructor called" << std::endl;
-}
-
 ClapTrap::ClapTrap(std::string name) :_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "Default constructor called" << std::endl;
+		std::cout << GREEN "ClapTrap constructor called" RESET << std::endl;
 }
 
 //========== Destructor ==========//
@@ -21,7 +15,7 @@ ClapTrap::ClapTrap(std::string name) :_name(name), _hitPoints(10), _energyPoints
 ClapTrap::~ClapTrap()
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << RED "ClapTrap destructor called" RESET << std::endl;
 }
 
 //========== Copy Constructor ==========//
@@ -29,7 +23,7 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(const ClapTrap& toCopy)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "Copy constructor called" << std::endl;
+		std::cout << BLUE "ClapTrap copy constructor called" RESET << std::endl;
 	*this = toCopy;
 }
 
@@ -38,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap& toCopy)
 ClapTrap& ClapTrap::operator = (const ClapTrap& toAssign)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "Copy assignment operator called" << std::endl;
+		std::cout << BLUE "ClapTrap copy assignment operator called" RESET << std::endl;
 	this->_name = toAssign._name;
 	this->_hitPoints = toAssign._hitPoints;
 	this->_energyPoints = toAssign._energyPoints;
@@ -51,26 +45,27 @@ ClapTrap& ClapTrap::operator = (const ClapTrap& toAssign)
 
 void	ClapTrap::setName(std::string name)
 {
-	if (this->_name.empty())
-		this->_name = name;
+	this->_name = name;
 }
 
 void	ClapTrap::setHitPoints(int hitPoints)
 {
-	if (_hitPoints <= 0)
+	if (hitPoints < 0)
 		return ;
 	_hitPoints = hitPoints;
 }
 
 void	ClapTrap::setEnergyPoints(int energyPoints)
 {
-	if (_energyPoints <= 0)
+	if (energyPoints < 0)
 		return ;
 	_energyPoints = energyPoints;
 }
 
 void	ClapTrap::setAttackDamage(int attackDamage)
 {
+	if (attackDamage < 0)
+		return ;
 	_attackDamage = attackDamage;
 }
 
@@ -99,16 +94,18 @@ int	ClapTrap::getAttackDamage(void) const
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (_hitPoints > 0 && _energyPoints > 0)
+	if (_hitPoints > 0)
 	{
-		_energyPoints--;
-		std::cout << BLUE << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " point of damage!" RESET << std::endl;
-		return ;
+		if (_energyPoints > 0)
+		{
+			_energyPoints--;
+			std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " point of damage!" << std::endl;
+		}
+		else 
+			std::cout << this->_name << " couldn't attack because it doesn't have enough EP!" << std::endl;
 	}
-	if (_hitPoints <= 0)
+	else
 		std::cout << this->_name << " couldn't attack because it doesn't have enough HP!" << std::endl;
-	if (_energyPoints <= 0)
-		std::cout << this->_name << " couldn't attack because it doesn't have enough EP!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -116,25 +113,27 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (_hitPoints > 0)
 	{
 		_hitPoints -= amount;
-		std::cout << RED << this->_name << " takes " << amount << " points of damage!" RESET << std::endl;
-		return ;
+		std::cout << this->_name << " takes " << amount << " points of damage!" << std::endl;
 	}
-	std::cout << this->_name << " couldn't take damage because it ded!" << std::endl;
+	else 
+		std::cout << this->_name << " couldn't take damage because it ded!" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_hitPoints > 0 && _energyPoints > 0)
+	if (_hitPoints > 0)
 	{
-		_energyPoints--;
-		_hitPoints += amount;
-		std::cout << GREEN << this->_name << " is healed and gains " << amount << " hitpoints!" RESET << std::endl;
-		return ;
+		if (_energyPoints > 0)
+		{
+			_energyPoints--;
+			_hitPoints += amount;
+			std::cout << this->_name << " is healed and gains " << amount << " hitpoints!" << std::endl;
+		}
+		else 
+			std::cout << this->_name << " couldn't be repaired because it doesn't have enough EP!" << std::endl;
 	}
-	if (_hitPoints <= 0)
-		std::cout << this->_name << " couldn't attack because it doesn't have enough HP!" << std::endl;
-	if (_energyPoints <= 0)
-		std::cout << this->_name << " couldn't attack because it doesn't have enough EP!" << std::endl;
+	else
+		std::cout << this->_name << " couldn't be repaired because it doesn't have enough HP!" << std::endl;
 }
 
 void	ClapTrap::status(void)

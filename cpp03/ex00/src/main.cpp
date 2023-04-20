@@ -5,14 +5,14 @@ int main(void)
 {
 	ClapTrap	N1("N1");
 	ClapTrap	N2("N2");
-	ClapTrap	N3;
+	ClapTrap	N3("N3");
 	ClapTrap	N4(N2);
 
 	std::cout << std::endl;
 
 	N1.attack("enemy");
 	N1.takeDamage(10);
-	// N1.beRepaired(10);
+	N1.beRepaired(10);
 	std::cout << std::endl;
 	N3 = N1;
 

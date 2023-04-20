@@ -5,7 +5,8 @@
 
 class Animal
 {
-	private:
+	protected:
+		std::string	_type;
 	
 	public:
 		Animal();
@@ -15,12 +16,8 @@ class Animal
 		Animal& operator = (const Animal& toAssign);
 
 		std::string		getType() const;
-		void			setType(std::string type);
 
 		virtual void	makeSound() const;
-
-	protected:
-		std::string	_type;
 };
 
 #endif

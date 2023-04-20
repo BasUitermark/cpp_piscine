@@ -3,19 +3,13 @@
 
 //========== Constructors ==========//
 
-ScavTrap::ScavTrap(): ClapTrap()
-{
-	if (DEBUG_MESSAGE)
-		std::cout << "ScavTrap constructor called" << std::endl;
-}
-
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "ScavTrap constructor called" << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+		std::cout << GREEN "ScavTrap constructor called" RESET << std::endl;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 }
 
 //========== Destructor ==========//
@@ -23,7 +17,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 ScavTrap::~ScavTrap()
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "ScavTrap destructor called" << std::endl;
+		std::cout << RED "ScavTrap destructor called" RESET << std::endl;
 }
 
 //========== Copy Constructor ==========//
@@ -31,7 +25,7 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap& toCopy): ClapTrap(toCopy)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "ScavTrap copy constructor called" << std::endl;
+		std::cout << BLUE "ScavTrap copy constructor called" RESET << std::endl;
 	*this = toCopy;
 }
 
@@ -40,11 +34,11 @@ ScavTrap::ScavTrap(const ScavTrap& toCopy): ClapTrap(toCopy)
 ScavTrap& ScavTrap::operator = (const ScavTrap& toAssign)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "Copy assignment operator called" << std::endl;
-	this->setName(toAssign.getName());
-	this->setHitPoints(toAssign.getHitPoints());
-	this->setEnergyPoints(toAssign.getEnergyPoints());
-	this->setAttackDamage(toAssign.getAttackDamage());
+		std::cout << BLUE "Copy assignment operator called" RESET << std::endl;
+	this->_name = toAssign._name;
+	this->_hitPoints = toAssign._hitPoints;
+	this->_energyPoints = toAssign._energyPoints;
+	this->_attackDamage = toAssign._attackDamage;
 	
 	return (*this);
 }
@@ -53,16 +47,21 @@ ScavTrap& ScavTrap::operator = (const ScavTrap& toAssign)
 
 void	ScavTrap::attack(std::string target)
 {
-	if (getHitPoints() > 0 && getEnergyPoints() > 0)
+	if (_hitPoints > 0)
 	{
-		setEnergyPoints(getEnergyPoints() - 1);
-		std::cout << BLUE << getName()<< " attacks " << target << ", causing " << getAttackDamage() << " point of damage!" RESET << std::endl;
-		return ;
+		if (_energyPoints > 0)
+		{
+			_energyPoints--;
+			std::cout << CYAN << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " point of damage!" RESET << std::endl;
+		}
+		else 
+			std::cout << CYAN << this->_name << " couldn't attack because it doesn't have enough EP!" RESET << std::endl;
 	}
-	std::cout << getName() << " couldn't attack because it doesn't have enough HP or EP!" << std::endl;
+	else
+		std::cout << CYAN << this->_name << " couldn't attack because it doesn't have enough HP!" RESET << std::endl;
 }
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << this->getName() << " is now in Gate Keeper mode." << std::endl;
+	std::cout  << CYAN << this->_name << " is now in Gate Keeper mode." RESET << std::endl;
 }

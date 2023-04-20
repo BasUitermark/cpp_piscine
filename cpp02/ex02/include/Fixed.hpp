@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+#define DEBUG_MESSAGE 1
+
 class Fixed
 {
 	private:
@@ -56,5 +58,4 @@ class Fixed
 };
 	std::ostream& operator<<(std::ostream& out, const Fixed& toConvert);
 	
-
 #endif

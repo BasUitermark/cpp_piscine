@@ -34,7 +34,7 @@ WrongCat& WrongCat::operator = (const WrongCat& toAssign)
 {
 	if (DEBUG_MESSAGE == 1)
 		std::cout << BLUE "WrongCat copy assignment operator called" RESET << std::endl;
-	this->setType(toAssign.getType());
+	this->_type = toAssign._type;
 	
 	return (*this);
 }

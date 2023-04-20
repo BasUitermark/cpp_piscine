@@ -5,8 +5,9 @@
 
 class WrongAnimal
 {
-	private:
-	
+	protected:
+		std::string	_type;
+
 	public:
 		WrongAnimal();
 		WrongAnimal(std::string type);
@@ -14,14 +15,9 @@ class WrongAnimal
 		WrongAnimal(const WrongAnimal& toCopy);
 		WrongAnimal& operator = (const WrongAnimal& toAssign);
 
-
-		std::string		getType() const;
-		void			setType(std::string type);
+		std::string	getType() const;
 
 		void	makeSound() const;
-
-	protected:
-		std::string	_type;
 };
 
 #endif

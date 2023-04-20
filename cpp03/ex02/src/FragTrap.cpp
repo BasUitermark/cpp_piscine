@@ -3,19 +3,13 @@
 
 //========== Constructors ==========//
 
-FragTrap::FragTrap(): ClapTrap()
-{
-	if (DEBUG_MESSAGE)
-		std::cout << "FragTrap constructor called" << std::endl;
-}
-
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "FragTrap constructor called" << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(50);
+		std::cout << GREEN "FragTrap constructor called" RESET << std::endl;
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 }
 
 //========== Destructor ==========//
@@ -23,7 +17,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 FragTrap::~FragTrap()
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "FragTrap destructor called" << std::endl;
+		std::cout << RED "FragTrap destructor called" RESET << std::endl;
 }
 
 //========== Copy Constructor ==========//
@@ -31,7 +25,7 @@ FragTrap::~FragTrap()
 FragTrap::FragTrap(const FragTrap& toCopy): ClapTrap(toCopy)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "FragTrap copy constructor called" << std::endl;
+		std::cout << BLUE "FragTrap copy constructor called" RESET << std::endl;
 	*this = toCopy;
 }
 
@@ -40,11 +34,11 @@ FragTrap::FragTrap(const FragTrap& toCopy): ClapTrap(toCopy)
 FragTrap& FragTrap::operator = (const FragTrap& toAssign)
 {
 	if (DEBUG_MESSAGE)
-		std::cout << "Copy assignment operator called" << std::endl;
-	this->setName(toAssign.getName());
-	this->setHitPoints(toAssign.getHitPoints());
-	this->setEnergyPoints(toAssign.getEnergyPoints());
-	this->setAttackDamage(toAssign.getAttackDamage());
+		std::cout << BLUE "FragTrap copy assignment operator called" RESET << std::endl;
+	this->_name = toAssign._name;
+	this->_hitPoints = toAssign._hitPoints;
+	this->_energyPoints = toAssign._energyPoints;
+	this->_attackDamage = toAssign._attackDamage;
 	
 	return (*this);
 }

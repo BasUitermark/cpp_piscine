@@ -34,9 +34,14 @@ Dog& Dog::operator = (const Dog& toAssign)
 {
 	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Dog copy assignment operator called" RESET << std::endl;
-	this->setType(toAssign.getType());
+	this->_type = toAssign._type;
 	
 	return (*this);
+}
+
+std::string	Dog::getType() const
+{
+	return (this->_type);
 }
 
 //========== Member Functions ==========//

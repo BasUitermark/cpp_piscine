@@ -15,4 +15,6 @@ class Brain
 		Brain& operator = (const Brain& toAssign);
 };
 
+std::string toString(int i);
+
 #endif

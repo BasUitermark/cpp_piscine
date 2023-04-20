@@ -55,5 +55,5 @@ clean:
 fclean: clean
 	@rm -rf $(BIN_PATH)
 
-re:	fclean all
+re:	fclean default
 .PHONY: clean fclean re run mkdir

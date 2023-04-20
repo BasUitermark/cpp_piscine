@@ -47,13 +47,6 @@ WrongAnimal& WrongAnimal::operator = (const WrongAnimal& toAssign)
 	return (*this);
 }
 
-//========== Get/Set Functions ==========//
-
-std::string	WrongAnimal::getType() const
-{
-	return (this->_type);
-}
-
 //========== Member Functions ==========//
 
 void	WrongAnimal::makeSound() const

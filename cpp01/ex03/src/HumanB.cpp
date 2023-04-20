@@ -13,12 +13,6 @@ HumanB::~HumanB()
 	return;
 }
 
-const Weapon*	HumanB::getWeapon()
-{
-	const Weapon*	get = this->weapon;
-	return (get);
-}
-
 void	HumanB::setWeapon(Weapon& newWeapon)
 {
 	this->weapon = &newWeapon;
@@ -27,5 +21,8 @@ void	HumanB::setWeapon(Weapon& newWeapon)
 
 void	HumanB::attack()
 {
-	std::cout << this->name << " attacks with their " << this->getWeapon()->getType() << std::endl;
+	if (!this->weapon)
+		std::cout << this->name << " attacks with their fists" << std::endl;
+	else
+		std::cout << this->name << " attacks with their " << weapon->getType() << std::endl;
 }

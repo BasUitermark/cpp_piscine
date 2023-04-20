@@ -1,5 +1,4 @@
 #include "../include/Dog.hpp"
-#include "../include/Brain.hpp"
 #include "../include/Utility.hpp"
 #include <iostream>
 
@@ -7,27 +6,25 @@
 
 Dog::Dog(): Animal("Dog")
 {
-	this->dogBrain = new Brain;
-
 	if(DEBUG_MESSAGE == 1)
 		std::cout << GREEN "Dog default constructor called" RESET << std::endl;
+	dogBrain = new Brain();
 }
 
 //========== Destructor ==========//
 
 Dog::~Dog()
 {
-	delete	dogBrain;
-
+	delete this->dogBrain;
 	if(DEBUG_MESSAGE == 1)
 		std::cout << RED "Dog default destructor called" RESET << std::endl;
 }
 
 //========== Copy Constructor ==========//
 
-Dog::Dog(const Dog& toCopy)
+Dog::Dog(const Dog& toCopy): Animal(toCopy)
 {
-	if (DEBUG_MESSAGE == 1)
+	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Dog copy constructor called" RESET << std::endl;
 	*this = toCopy;
 }
@@ -36,10 +33,11 @@ Dog::Dog(const Dog& toCopy)
 
 Dog& Dog::operator = (const Dog& toAssign)
 {
-	if (DEBUG_MESSAGE == 1)
+	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Dog copy assignment operator called" RESET << std::endl;
-
 	this->_type = toAssign._type;
+	this->dogBrain = new Brain(*toAssign.dogBrain);
+	
 	return (*this);
 }
 

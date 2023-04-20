@@ -6,7 +6,7 @@ int main(void)
 {
 	ClapTrap	N1("N1");
 	ClapTrap	N2("N2");
-	ClapTrap	N3;
+	ClapTrap	N3("N3");
 	ClapTrap	N4(N2);
 
 	ScavTrap	S1("S1");

@@ -5,10 +5,8 @@
 
 //========== Constructors ==========//
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal(): _type("WRONG_NAME")
 {
-	this->_type = "WRONG_NAME";
-
 	if(DEBUG_MESSAGE == 1)
 		std::cout << GREEN "WrongAnimal default constructor called" RESET << std::endl;
 }
@@ -47,16 +45,9 @@ WrongAnimal& WrongAnimal::operator = (const WrongAnimal& toAssign)
 	return (*this);
 }
 
-//========== Get/Set Functions ==========//
-
 std::string	WrongAnimal::getType() const
 {
 	return (this->_type);
-}
-
-void	WrongAnimal::setType(std::string type)
-{
-	this->_type = type;
 }
 
 //========== Member Functions ==========//

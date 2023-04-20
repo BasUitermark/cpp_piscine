@@ -16,12 +16,17 @@ int main(int argc, char **argv)
 	std::string	input;
 	Zombie		*horde;
 
+	if (argc != 3)
+		return (EXIT_FAILURE);
 	input = argv[1];
-	if (argc != 3 || !isNumber(input))
+	if (!isNumber(input))
 		return (EXIT_FAILURE);
 
 	N = atoi(input.c_str());
 	horde = zombieHorde(N, argv[2]);
+
+	horde->announce();
+	std::cout << std::endl;
 
 	for (int i = 0; i < N; i++)
 		horde[i].announce();

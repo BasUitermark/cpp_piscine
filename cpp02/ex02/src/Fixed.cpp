@@ -6,24 +6,28 @@
 
 Fixed::Fixed(void) :_number(0)
 {
-	// std::cout << "Default constructor called" << std::endl;
+	if (DEBUG_MESSAGE)
+		std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int n) :_number(n << _fractionalBits)
 {
-	// std::cout << "Int constructor called" << std::endl;
+	if (DEBUG_MESSAGE)
+		std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float n) :_number(roundf(n * (1 << _fractionalBits)))
 {
-	// std::cout << "Float constructor called" << std::endl;
+	if (DEBUG_MESSAGE)
+		std::cout << "Float constructor called" << std::endl;
 }
 
 //========== Copy Constructor ==========//
 
 Fixed::Fixed(const Fixed& copy)
 {
-	// std::cout << "Copy constructor called" << std::endl;
+	if (DEBUG_MESSAGE)
+		std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -31,7 +35,8 @@ Fixed::Fixed(const Fixed& copy)
 
 Fixed::~Fixed(void)
 {
-	// std::cout << "Destructor called" << std::endl;
+	if (DEBUG_MESSAGE)
+		std::cout << "Destructor called" << std::endl;
 }
 
 //========== Member Functions ===========//
@@ -184,7 +189,8 @@ Fixed Fixed::operator -- (int)
 
 Fixed& Fixed::operator = (const Fixed& copy)
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
+	if (DEBUG_MESSAGE)
+	std::cout << "Copy assignment operator called" << std::endl;
 	this->_number = copy.getRawBits();
 	return (*this);
 }

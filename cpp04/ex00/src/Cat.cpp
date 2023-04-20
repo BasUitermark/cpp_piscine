@@ -34,9 +34,14 @@ Cat& Cat::operator = (const Cat& toAssign)
 {
 	if (DEBUG_MESSAGE)
 		std::cout << BLUE "Cat copy assignment operator called" RESET << std::endl;
-	this->setType(toAssign.getType());
+	this->_type = toAssign._type;
 	
 	return (*this);
+}
+
+std::string	Cat::getType() const
+{
+	return (this->_type);
 }
 
 //========== Member Functions ==========//

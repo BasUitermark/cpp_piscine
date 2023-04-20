@@ -6,14 +6,13 @@
 
 class WrongCat: public WrongAnimal
 {
-	private:
-	
 	public:
 		WrongCat();
 		~WrongCat();
 		WrongCat(const WrongCat& toCopy);
 		WrongCat& operator = (const WrongCat& toAssign);
 
+		std::string getType() const;
 
 		void	makeSound() const;
 };
