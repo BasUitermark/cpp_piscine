@@ -36,7 +36,7 @@ mkdir:
 
 clean:
 	@rm -rf $(OBJ_PATH)
-std::
+
 fclean: clean
 	@rm -rf $(BIN_PATH)
 	@rm -rf Garden*

@@ -87,10 +87,10 @@ void	Bureaucrat::signForm(Form& toSign)
 	try 
 	{
 		toSign.beSigned(*this);
-		std::cout << GREEN << getName() << " has succesfully signed: " << toSign.getName() << RESET << std::endl;
+		std::cout << BOLD GREEN << getName() << " has succesfully signed: " << toSign.getName() << RESET << std::endl;
 	}
 	catch (Form::GradeTooLowException &sign)
 	{
-		std::cout << RED << getName() << " has failed to sign: " << toSign.getName() << RESET << std::endl;
+		std::cout << BOLD RED << getName() << " has failed to sign: " << toSign.getName() << RESET << std::endl;
 	}
 }

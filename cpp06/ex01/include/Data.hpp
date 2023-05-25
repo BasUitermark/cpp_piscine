@@ -1,7 +1,7 @@
 #ifndef DATA_HPP
 # define DATA_HPP
 
-#define DEBUG_MESSAGE 0
+#define DEBUG_MESSAGE 1
 
 class Data
 {

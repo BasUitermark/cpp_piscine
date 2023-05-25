@@ -43,37 +43,38 @@ int main(void)
 	Frank.executeForm(shrubFrank);
 	std::cout << std::endl;
 
-	// //== Robotomy: sign succes, execute succes ==//
-	// Phteven.signForm(robotPhteven);
-	// Phteven.executeForm(robotPhteven);
-	// std::cout << std::endl;
+	//== Robotomy: sign succes, execute succes ==//
+	Phteven.signForm(robotPhteven);
+	Phteven.executeForm(robotPhteven);
+	std::cout << std::endl;
 
-	// //== Robotomy: sign succes, execute fail ==//
-	// Phteven.setGrade(46);
-	// Phteven.signForm(robotPhteven);
-	// Phteven.executeForm(robotPhteven);
-	// std::cout << std::endl;
+	//== Robotomy: sign succes, execute fail ==//
+	Phteven.setGrade(46);
+	Phteven.signForm(robotPhteven);
+	Phteven.executeForm(robotPhteven);
+	std::cout << std::endl;
 
-	// //== Robotomy: sign fail, execute fail ==//
-	// Phteven.setGrade(73);
-	// Phteven.signForm(robotPhteven);
-	// Phteven.executeForm(robotPhteven);
-	// std::cout << std::endl;
+	//== Robotomy: sign fail, execute fail ==//
+	Phteven.setGrade(73);
+	Phteven.signForm(robotPhteven);
+	Phteven.executeForm(robotPhteven);
+	std::cout << std::endl;
 
-	// //== Pardon: sign succes, execute succes ==//
-	// Sarah.signForm(pardonSarah);
-	// Sarah.executeForm(pardonSarah);
-	// std::cout << std::endl;
+	//== Pardon: sign succes, execute succes ==//
+	Sarah.signForm(pardonSarah);
+	Sarah.executeForm(pardonSarah);
+	std::cout << std::endl;
 
-	// //== Pardon: sign succes, execute fail ==//
-	// Sarah.setGrade(6);
-	// Sarah.signForm(pardonSarah);
-	// Sarah.executeForm(pardonSarah);
-	// std::cout << std::endl;
+	//== Pardon: sign succes, execute fail ==//
+	Sarah.setGrade(6);
+	Sarah.signForm(pardonSarah);
+	Sarah.executeForm(pardonSarah);
+	std::cout << std::endl;
 
-	// //== Pardon: sign fail, execute fail ==//
-	// Sarah.setGrade(26);
-	// Sarah.signForm(pardonSarah);
-	// Sarah.executeForm(pardonSarah);
-	// std::cout << std::endl;
+	//== Pardon: sign fail, execute fail ==//
+	Sarah.setGrade(26);
+	Sarah.signForm(pardonSarah);
+	Sarah.executeForm(pardonSarah);
+	std::cout << std::endl;
+
 }

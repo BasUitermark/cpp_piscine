@@ -1,6 +1,6 @@
 # tool macros
 CC			:= c++
-CFLAGS 		:= -Wall -Werror -Wextra -std=c++98
+CFLAGS 		:= -Wall -Werror -Wextra -std=c++98 -pedantic
 COBJFLAGS 	:= $(CFLAGS) -c
 
 # path macros

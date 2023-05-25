@@ -16,7 +16,8 @@ TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 # source files & object files
 SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
 					main \
-					Data))
+					Data \
+					Serializer))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all

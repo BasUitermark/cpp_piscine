@@ -1,27 +1,15 @@
-#include <stdint.h>
 #include <iostream>
 #include "../include/Data.hpp"
+#include "../include/Serializer.hpp"
 #include "../include/Colors.hpp"
-
-uintptr_t serialize(Data* ptr)
-{
-	uintptr_t	cast = reinterpret_cast<uintptr_t>(ptr);
-	return (cast);
-}
-
-Data* deserialize(uintptr_t raw)
-{
-	Data* cast = reinterpret_cast<Data*>(raw);
-	return (cast);
-}
 
 int	main(void)
 {
 	Data		data;
 	Data*		ptr = &data;
 
-	uintptr_t	serialized = serialize(ptr);
-	Data*		deserialized = deserialize(serialized);
+	uintptr_t	serialized = Serializer::serialize(ptr);
+	Data*		deserialized = Serializer::deserialize(serialized);
 
 
 	std::cout << BOLD "\t\t|PRE CAST|" RESET << std::endl;

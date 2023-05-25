@@ -22,8 +22,8 @@ template<typename T>
 class Array
 {
 	private:
-	T*	_array;
-	int	_len;
+	T*				_array;
+	unsigned int	_len;
 
 	public:
 	Array();
@@ -40,10 +40,7 @@ class Array
 	class	IndexOutOfBoundsException: public std::exception
 	{
 		public:
-			const char *what() const throw()
-			{
-				return (RED"Exception: Accessed index out of Array bounds"RESET);
-			}
+			const char *what() const throw();
 	};
 };
 

@@ -16,10 +16,15 @@ TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 # source files & object files
 SRC 		:=	$(addprefix src/, $(addsuffix .cpp, \
 					main \
-					Convert))
+					ScalarConverter))
 OBJ 		:= $(subst src, obj, $(SRC:.cpp=.o))
 
 default: mkdir all
+ifeq (run,$(firstword $(MAKECMDGOALS)))
+  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  $(eval $(RUN_ARGS):;@:)
+endif
+
 
 $(TARGET): $(OBJ)
 	@$(CC) -o $@ $(OBJ) $(HDR_PATH) $(CFLAGS)
@@ -29,8 +34,9 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp
 
 all: $(TARGET)
 
+
 run: default
-	./$(TARGET)
+	@./$(TARGET) $(RUN_ARGS)
 
 mkdir:
 	@mkdir -p $(BIN_PATH) $(OBJ_PATH)

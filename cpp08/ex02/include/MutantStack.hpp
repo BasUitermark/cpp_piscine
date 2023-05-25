@@ -15,34 +15,26 @@
 
 #define DEBUG_MESSAGE 0
 
-#include <exception>
-#include <iostream>
+#include <iterator>
+#include <stack>
 
-template<typename T>
-class MutantStack
+template<typename T, typename Container = std::deque<T> >
+class MutantStack: public std::stack<T, Container>
 {
-	private:
-	T*	_array;
-	int	_len;
-
 	public:
 	MutantStack();
-	MutantStack(unsigned int n);
 	~MutantStack();
 	
 	MutantStack(const MutantStack& copy);
 	MutantStack&	operator= (const MutantStack& assignment);
-	T&		operator[] (size_t i) const;
 
-	private:
-	class	IndexOutOfBoundsException: public std::exception
-	{
-		public:
-			const char *what() const throw()
-			{
-				return (RED"Exception: Accessed index out of Array bounds"RESET);
-			}
-	};
+	typedef typename std::stack<T>::container_type::iterator iterator;
+	typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+
+	iterator	begin();
+	iterator	end();
+	reverse_iterator	rbegin();
+	reverse_iterator	rend();
 };
 
 #include "../src/MutantStack.tpp"

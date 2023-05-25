@@ -44,21 +44,20 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator = (const ShrubberyCreatio
 
 void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
-	std::ofstream	out(_target + "_shrubbery");
-
 	if (!this->getIsSigned())
 		throw Form::NotSignedException();
 	if (this->getToExecute() < executor.getGrade())
 		throw Form::GradeTooLowException();
+	std::ofstream	out(_target + "_shrubbery");
 
-	out << "	            ,@@@@@@@,"
-    "   ,,,.   ,@@@@@@\\@@,  .oo8888o."
-    ",&%%&%&&%,@@@@@\\@@@@@@,8888\\88/8o"
-   ",%&/%&&%&&%,@@@\\@@@/@@@88\\88888/88'"
-   "%&&%&%&/%&&%@@\\@@/ /@@@88888/88888'"
-   "%&&%/ %&%%&&@@\\ V /@@' `88/8 `/88'"
-   "`&%\\ ` /%&'    |.|        \\ '|8'"
-    "   |o|        | |         | |"
-    "   |.|        | |         | |"
+	out << "	            ,@@@@@@@," << std::endl <<
+    "   ,,,.   ,@@@@@@\\@@,  .oo8888o." << std::endl <<
+    ",&%%&%&&%,@@@@@\\@@@@@@,8888\\88/8o" << std::endl <<
+   ",%&/%&&%&&%,@@@\\@@@/@@@88\\88888/88'" << std::endl <<
+   "%&&%&%&/%&&%@@\\@@/ /@@@88888/88888'" << std::endl <<
+   "%&&%/ %&%%&&@@\\ V /@@' `88/8 `/88'" << std::endl <<
+   "`&%\\ ` /%&'    |.|        \\ '|8'" << std::endl <<
+    "   |o|        | |         | |" << std::endl <<
+    "   |.|        | |         | |" << std::endl <<
     "\\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
 }

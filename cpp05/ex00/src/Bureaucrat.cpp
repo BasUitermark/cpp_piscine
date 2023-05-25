@@ -48,7 +48,7 @@ Bureaucrat& Bureaucrat::operator = (const Bureaucrat& toAssign)
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& toConvert)
 {
-	out << BOLD << toConvert.getName() << ", bureaucrat grade " RESET << toConvert.getGrade();
+	out << BOLD << "Bureacrat: " << toConvert.getName() << ", grade: " << toConvert.getGrade() << RESET;
 	return (out);
 }
 

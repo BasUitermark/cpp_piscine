@@ -81,6 +81,6 @@ void	Form::beSigned(Bureaucrat& a)
 
 std::ostream& operator<<(std::ostream& out, const Form& toConvert)
 {
-	out << BOLD "Form\nName:\t\t\t" << toConvert.getName() << "\nSigned:\t\t\t" << std::boolalpha << toConvert.getIsSigned() << "\nGrade to sign:\t\t" << toConvert.getToSign() << "\nGrade to execute:\t" << toConvert.getToExecute() << std::endl; 
+	out << BOLD "Form\nName:\t\t\t" << toConvert.getName() << "\nSigned:\t\t\t" << std::boolalpha << toConvert.getIsSigned() << "\nGrade to sign:\t\t" << toConvert.getToSign() << "\nGrade to execute:\t" << toConvert.getToExecute() << RESET <<std::endl; 
 	return (out);
 }

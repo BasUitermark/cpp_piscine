@@ -38,7 +38,6 @@ class Bureaucrat
 		void	decrementGrade();
 		void	signForm(Form& toSign);
 
-
 		class GradeTooHighException: public std::exception
 		{
 			public:
@@ -56,7 +55,6 @@ class Bureaucrat
 					return (RED "Grade too low" RESET);
 				}
 		};
-
 };
 
 std::ostream& 	operator<<(std::ostream& out, const Bureaucrat& toConvert);

@@ -14,5 +14,4 @@ int main(void)
 	thatForm = thatIntern.makeForm("urmom", "shrubs");
 	Steve.signForm(*thatForm);
 	Steve.executeForm(*thatForm);
-
 }

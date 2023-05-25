@@ -5,7 +5,7 @@
 //========== Constructors ==========//
 
 Data::Data()
-: _value(0)
+: _value(30)
 {
 	if(DEBUG_MESSAGE == 1)
 		std::cout << GREEN "Data default constructor called" RESET << std::endl;

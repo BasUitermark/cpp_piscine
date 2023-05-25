@@ -1,5 +1,5 @@
 #include "../include/Array.hpp"
-#include <cstdio>
+// #include <cstdio>
 
 
 template<typename T>
@@ -14,7 +14,14 @@ Array<T>::Array()
 template<typename T>
 Array<T>::Array(unsigned int n)
 {
-	this->_array = new T[n];
+	T *temp = new T();
+	_len = n;
+	_array = new T[_len];
+	for (unsigned int i = 0; i < _len; i++)
+	{
+		_array[i] = *temp;
+	}
+	delete temp;
 
 	if(DEBUG_MESSAGE == 1)
 		std::cout << GREEN "Array default constructor called" RESET << std::endl;
@@ -41,19 +48,22 @@ Array<T>::Array(const Array& toCopy)
 }
 
 template<typename T>
-Array<T>& Array<T>::operator= (const Array<T>& toAssign)
+Array<T>& Array<T>::operator= (const Array& toAssign)
 {
 	if(DEBUG_MESSAGE == 1)
 		std::cout << GREEN "Array default toAssign operator called" RESET << std::endl;
-	if (this != &toAssign)
-	{
-		this->_len = toAssign.size();
-		delete[] this->_array;
-		this->_array = new T[this->_len];
-		for (size_t i = 0; i < toAssign.size(); i++)
-			this->_array[i] = toAssign[i];
-	}
+	this->_len = toAssign._len;
+	delete[] this->_array;
+	this->_array = new T[this->_len];
+	for (size_t i = 0; i < toAssign.size(); i++)
+		this->_array[i] = toAssign[i];
 	return(*this);
+}
+
+template<typename T>
+const char* Array<T>::IndexOutOfBoundsException::what() const throw()
+{
+    return "Index out of bounds exception";
 }
 
 template<typename T>
