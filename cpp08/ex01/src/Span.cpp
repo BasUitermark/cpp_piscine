@@ -45,6 +45,16 @@ Span& Span::operator = (const Span& toAssign)
 	return (*this);
 }
 
+const char* Span::ArrayOverflow::what() const throw()
+{
+	return RED "Addition will overflow maximum size of array" RESET;
+}
+
+const char* Span::ArraySizeTooSmall::what() const throw()
+{
+	return RED "Array size is too small for this function" RESET;
+}
+
 void	Span::addNumber(int n)
 {
 	if (this->_array.size() < _maxSize)

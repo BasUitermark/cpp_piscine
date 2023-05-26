@@ -10,7 +10,7 @@ OBJ_PATH 	:= obj
 SRC_PATH	:= src
 
 # compile macros
-TARGET_NAME	:= Span
+TARGET_NAME	:= Span_Me
 TARGET		:= $(BIN_PATH)/$(TARGET_NAME)
 
 # source files & object files

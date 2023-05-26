@@ -34,22 +34,16 @@ class Span
 		int		shortestSpan() const;
 		int		longestSpan() const;
 
-	private: 
-		class ArrayOverflow: std::exception
+		class ArrayOverflow: public std::exception
 		{
 			public:
-				const char *what() const throw()
-				{
-					return ("Addition will overflow maximum size of array");
-				}
+				const char *what() const throw();
 		};
-		class ArraySizeTooSmall: std::exception
+
+		class ArraySizeTooSmall: public std::exception
 		{
 			public:
-				const char *what() const throw()
-				{
-					return ("Array size is too small for this function");
-				}
+				const char *what() const throw();
 		};
 };
 
