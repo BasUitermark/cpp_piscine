@@ -7,7 +7,7 @@ int main(void)
 		std::cout << BOLD "INT ARRAY TEST" RESET << std::endl;
 		Array<int>	intTest(7);
 
-		for(int i = 0; i < 7; i++)
+		for(int i = 0; i < 8; i++)
 			intTest[i] = i;
 		
 		std::cout << BLUE "Size of intTest: " RESET << intTest.size() << std::endl;

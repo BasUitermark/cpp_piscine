@@ -18,10 +18,7 @@
 class ElementNotFound: public std::exception
 {
 	public:
-		const char* what() const throw()
-		{
-			return (RED "Target not in array" RESET);
-		}
+		const char* what() const throw();
 };
 
 template<typename T>

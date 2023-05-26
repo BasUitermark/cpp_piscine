@@ -30,6 +30,7 @@ class Span
 		Span&	operator = (const Span& toAssign);
 
 		void	addNumber(int n);
+		void	addNumbers(const std::vector<int>& numbers);
 		int		shortestSpan() const;
 		int		longestSpan() const;
 

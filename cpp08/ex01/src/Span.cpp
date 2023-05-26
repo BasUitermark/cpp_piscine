@@ -53,26 +53,43 @@ void	Span::addNumber(int n)
 		throw ArrayOverflow();
 }
 
+
+void	Span::addNumbers(const std::vector<int>& numbers)
+{
+	if (_array.size() + numbers.size() > _maxSize)
+		throw ArrayOverflow();
+
+	_array.insert(_array.end(), numbers.begin(), numbers.end());
+}
+
+
 int	Span::shortestSpan() const
 {
 	if (this->_array.size() < 2)
 		throw ArraySizeTooSmall();
 
-	std::vector<int>	copy = this->_array;
+	std::vector<int> sortedCopy = _array;
+	std::sort(sortedCopy.begin(), sortedCopy.end());
 
-	std::sort(copy.begin(), copy.end());
+	int shortest = std::numeric_limits<int>::max();
+	for (size_t i = 1; i < sortedCopy.size(); ++i)
+	{
+		int diff = sortedCopy[i] - sortedCopy[i - 1];
+		if (diff < shortest)
+			shortest = diff;
+	}
 
-	return (copy.at(1) - copy.at(0));
+	return shortest;
 }
+
 
 int	Span::longestSpan() const
 {
 	if (this->_array.size() < 2)
 		throw ArraySizeTooSmall();
 
-	std::vector<int>	copy = this->_array;
+	int minElement = *std::min_element(_array.begin(), _array.end());
+	int maxElement = *std::max_element(_array.begin(), _array.end());
 
-	std::sort(copy.begin(), copy.end());
-
-	return (copy.back() - copy.at(0));
+	return maxElement - minElement;
 }
